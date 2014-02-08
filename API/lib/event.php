@@ -25,6 +25,7 @@
 		global $db_link;
 	  if($q = $db_link->prepare("SELECT * FROM events WHERE `location` = ?"))
 	  {
+      $q->bind_param('s', $location);
 	    $q->execute();
 	    $q->bind_result($eid,$name, $desc,$loc,$start_date, $start_time);
 

@@ -10,6 +10,7 @@
 	$app->post('/login/:email', 'login');
 	$app->post('/logout', authenticate(), 'logout');
 	$app->post('/users', 'register');
+	$app->get('/user', authenticate(), 'getCurrentUserInfo');
 	$app->get('/events', 'getEvents');
 	$app->get('/events/:location', 'getEventsByLocation');
 
@@ -18,9 +19,8 @@
 	function login($email) {
 		if(!empty($email) && !empty($_POST['password'])) {
 			$email = trim(strtolower($email));
-      $user_id = dbLogin($email, $_POST['password']);
-			if($user_id != null) {
-				$user = array("email"=>$email, "uid"=>$user_id);
+      $user = dbLogin($email, $_POST['password']);
+			if($user != null) {
 				$_SESSION['user'] = $user;
 				echo(json_encode($user));
 			} else {
@@ -78,6 +78,14 @@
 					echo('{"error":{"text":"Something Went Horribly Wrong! Please try again."}}');
 					break;
 			}
+		}
+	}
+
+	function getCurrentUserInfo() {
+		if($_SESSION['user'] != null) {
+			echo(json_encode($_SESSION['user']));
+		} else {
+			echo('{"error":{"text":"Failed to retrieve User Info"}}');
 		}
 	}
 
