@@ -10,6 +10,8 @@
 	$app->post('/login/:email', 'login');
 	$app->post('/logout', authenticate(), 'logout');
 	$app->post('/users', 'register');
+	$app->get('/events', 'getEvents');
+	$app->get('/events/:location', 'getEventsByLocation');
 
 	$app->run();
 
@@ -76,6 +78,24 @@
 					echo('{"error":{"text":"Something Went Horribly Wrong! Please try again."}}');
 					break;
 			}
+		}
+	}
+
+	function getEvents() {
+		$results = dbGetEvents();
+		if($results != null) {
+			echo($results);
+		} else {
+			echo('{"error":{"text":"Failed to retrieve Events"}}');
+		}
+	}
+
+	function getEventsByLocation($location) {
+		$results = dbGetEventsByLocation($location);
+		if($results != null) {
+			echo($results);
+		} else {
+			echo('{"error":{"text":"Failed to retrieve Events"}}');
 		}
 	}
 
