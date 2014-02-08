@@ -1,0 +1,15 @@
+/*-- HTML5 Boilerplate. -----------------------------------------------------*/
+
+@import "../../vendor/bower/html5-boilerplate/css/normalize.css";
+@import "../../vendor/bower/html5-boilerplate/css/main.css";
+
+/*-- Application stylesheets. -----------------------------------------------*/
+
+body{
+	background-color: rgb(240,240,240);
+	margin-top:50px;
+}
+
+.vertical-offset-100{
+    padding-top:100px;
+}
