@@ -15,7 +15,7 @@ require(["config"], function() {
     $(document).ajaxError(function(event, xhr, options) {
         switch(xhr.status) {
             case 401:
-              Backbone.history.navigate('login', {trigger:true});
+              //Backbone.history.navigate('login', {trigger:true});
               break;
         }
       });

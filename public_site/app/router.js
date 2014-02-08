@@ -6,12 +6,36 @@ define(function(require, exports, module) {
 
   var Login = require("components/user/login/view");
   var Register = require("components/user/register/view");
-
+  var Home = require("components/home/view");
   var app = require("app");
+
+  var UserModel = require("components/user/model");
 
   // Defining the application router.
   module.exports = Backbone.Router.extend({
     initialize: function() {
+      this.HomeView = new Home();
+      this.user = new UserModel({});
+      var that = this;
+      this.user.on("change", function() {
+        that.HomeView.userUpdate();
+      });
+      $.ajax({
+        url:"../api/index.php/user",
+        type:'GET',
+        dataType:"json",
+        success:function(data) {
+          if(data.error) {
+            console.log("Not Logged In");
+          } else {
+            console.log("Logged In:");
+            that.user.set(data);
+          }
+        }, error:function(response) {
+          console.log("Error: ");
+          console.log(response);
+        }
+      });
     },
     routes: {
       "": "index",
@@ -21,8 +45,7 @@ define(function(require, exports, module) {
     },
 
     index: function() {
-      $('#main').html('');
-      console.log("Index");
+      new Home().render();
     },
     login: function() {
       new Login().render();
