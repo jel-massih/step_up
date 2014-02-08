@@ -1,6 +1,7 @@
 <?php
 	session_start();
-	require 'vendor/autoload.php';
+	require 'Slim/Slim.php';
+	\Slim\Slim::registerAutoloader();
 	require 'lib/login.php';
 	require 'lib/register.php';
 
