@@ -60,9 +60,12 @@ define(function(require, exports, module) {
           } else {
             that.user = new UserModel({});
           }
+          Backbone.history.navigate('/', {trigger:true});
+        },
+        error:function() {
+          Backbone.history.navigate('/', {trigger:true});
         }
       });
-      Backbone.history.navigate('/', {trigger:true});
     }
   });
 });
