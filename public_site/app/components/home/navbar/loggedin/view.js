@@ -7,17 +7,8 @@ define(function(require, exports, module) {
     el:"#headercontent",
     template: require("ldsh!./template"),
     initialize: function() {
+      console.log(this.model);
       this.render();
-    },
-    events: {
-      "click #registerbtn": "register",
-      "click #signinbtn": "login"
-    },
-    login: function() {
-      Backbone.history.navigate('login', {trigger: true});
-    },
-    register: function() {
-      Backbone.history.navigate('register', {trigger: true});
     }
   });
 

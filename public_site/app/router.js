@@ -25,15 +25,9 @@ define(function(require, exports, module) {
         type:'GET',
         dataType:"json",
         success:function(data) {
-          if(data.error) {
-            console.log("Not Logged In");
-          } else {
-            console.log("Logged In:");
+          if(!data.error) {
             that.user.set(data);
           }
-        }, error:function(response) {
-          console.log("Error: ");
-          console.log(response);
         }
       });
     },
@@ -63,7 +57,7 @@ define(function(require, exports, module) {
           if(data.error) {
             console.log("Error Logging Out");
           } else {
-            Backbone.history.navigate('login', {trigger:true});
+            Backbone.history.navigate('/', {trigger:true});
           }
         }
       });
