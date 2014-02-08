@@ -20,7 +20,6 @@ define(function(require, exports, module) {
         view = new LoggedInView({model: app.router.user});
         this.currentNavState = "loggedin";
       } else {
-        console.log("Show Logged Out");
         view = new LoggedOutView();
         this.currentNavState = "loggedout";
       }
@@ -28,14 +27,18 @@ define(function(require, exports, module) {
       view.render();
     },
     userUpdate: function() {
+      var view;
       if(app.router.user.isValid()) {
         if(this.currentNavState != "loggedin") {
-          this.setView("#headercontent", new LoggedInView({model: app.router.user}));
+          view = new LoggedInView({model: app.router.user});
+          this.setView("#headercontent", view);
           this.currentNavState = "loggedin";
+          view.render();
         }
       } else {
         if(this.currentNavState != "loggedout") {
-          this.setView("#headercontent", new LoggedOutView());
+          view = new LoggedOutView();
+          this.setView("#headercontent", view);
           this.currentNavState = "loggedout";
         }
       }

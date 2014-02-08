@@ -41,7 +41,7 @@ define(function(require, exports, module) {
               data: {"password": password},
               success:function(data) {
                 if(!data.error) {
-                  app.router.loggedIn = true;
+                  app.router.user.set(data);
                   Backbone.history.navigate('', {trigger:true});
                 }else {
                   $('.alert-error').text(data.error.text).show();

@@ -6,9 +6,17 @@ define(function(require, exports, module) {
   var Layout = Backbone.Layout.extend({
     el:"#headercontent",
     template: require("ldsh!./template"),
+    serialize: function() {
+      return {model: this.model};
+    },
     initialize: function() {
-      console.log(this.model);
       this.render();
+    },
+    events: {
+      "click #logoutbtn": "logout"
+    },
+    logout: function() {
+      Backbone.history.navigate('logout', {trigger: true});
     }
   });
 

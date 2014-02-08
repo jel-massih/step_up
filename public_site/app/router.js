@@ -49,6 +49,7 @@ define(function(require, exports, module) {
     },
     logout: function() {
       var url = '../api/index.php/logout';
+      var that = this;
       $.ajax({
         url:url,
         type:'POST',
@@ -57,10 +58,11 @@ define(function(require, exports, module) {
           if(data.error) {
             console.log("Error Logging Out");
           } else {
-            Backbone.history.navigate('/', {trigger:true});
+            that.user = new UserModel({});
           }
         }
       });
+      Backbone.history.navigate('/', {trigger:true});
     }
   });
 });
