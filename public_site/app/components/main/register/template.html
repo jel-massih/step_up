@@ -1,100 +1,66 @@
 <span style= "display:inline block ">
-          <img class="logo" src="app/img/SULogoTop.gif"  alt="">
-          <h3>Membership Registration Form </h3>
-      </span>
+    <img class="logo" src="app/img/SULogoTop.gif"  alt="">
+    <h3>Membership Registration Form </h3>
+</span>  
+<div class="alert-error" style="display:none; color:red"></div>
+<div id="wrapper" style="width:700px;margin:0 auto">
     
-      <div id="wrapper" style="width:700px;margin:0 auto">
+    <form class="form-horizontal">
+    <fieldset>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="textinput">Name</label>  
+      <div class="col-md-4">
+      <input id="nameInput" name="textinput" placeholder="Enter Your Real Name" class="form-control input-md" type="text">
         
-        <form class="form-horizontal">
-        <fieldset>
+      </div>
+    </div>
 
-        <!-- Form Name -->
-      
-        <!-- Text input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="textinput">Name</label>  
-          <div class="col-md-4">
-          <input id="textinput" name="textinput" placeholder="Enter Your Real Name" class="form-control input-md" type="text">
-            
-          </div>
-        </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="textinput2">Email</label>  
+      <div class="col-md-4">
+      <input id="emailInput" name="textinput2" placeholder="your@email.com" class="form-control input-md" type="text">
+        
+      </div>
+    </div>
 
-        <!-- Text input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="textinput2">Email</label>  
-          <div class="col-md-4">
-          <input id="textinput2" name="textinput2" placeholder="your@email.com" class="form-control input-md" type="text">
-            
-          </div>
-        </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="passwordinput">Password</label>
+      <div class="col-md-4">
+        <input id="passwordinput" name="passwordinput" placeholder="Min. 8 Characters" class="form-control input-md" type="password">
+        
+      </div>
+    </div>
 
-        <!-- Text input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="textinput">Cellphone Number</label>  
-          <div class="col-md-4">
-          <input id="textinput" name="textinput" placeholder="Telephone Number" class="form-control input-md" type="text">
-            
-          </div>
-        </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="selectType2">Membership Type</label>
+      <div class="col-md-4">
+        <select id="membershipType" name="selectType2" class="form-control">
+            <option value="0">Select One</option>
+            <option value="mentor">Mentor</option>
+            <option value="mentee">Mentee</option>
+        </select>
+      </div>
+    </div>
 
-        <!-- Password input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="passwordinput">Password</label>
-          <div class="col-md-4">
-            <input id="passwordinput" name="passwordinput" placeholder="Min. 8 Characters" class="form-control input-md" type="password">
-            
-          </div>
-        </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="selectcity">Choose City</label>
+      <div class="col-md-4">
+        <select id="selectcity" name="selectcity" class="form-control">
+           <option value="0">Select One</option>
+          <option value="chicago">Chicago</option>
+          <option value="new york">New York</option>
+          <option value="los angeles">Los Angeles</option>
+        </select>
+      </div>
+    </div>
 
-
-
-        <!-- Select Basic -->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="selectType2">Membership Type</label>
-          <div class="col-md-4">
-            <select id="selectType2" name="selectType2" class="form-control">
-                <option value="0">Select One</option>
-              <option value="1">Mentor</option>
-              <option value="2">Mentee</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Select Basic -->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="selectcity">Choose City</label>
-          <div class="col-md-4">
-            <select id="selectcity" name="selectcity" class="form-control">
-               <option value="0">Select One</option>
-              <option value="Chicago">Chicago</option>
-              <option value="New York">New York</option>
-              <option value="Los Angeles">Los Angeles</option>
-            </select>
-          </div>
-        </div>
-
-
-        <!-- Select Basic -->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="selectMethod">Contact Preference</label>
-          <div class="col-md-4">
-            <select id="selectMethod" name="selectMethod" class="form-control">
-              <option value="0">Select One</option>
-              <option value="1">Email</option>
-              <option value="2">Text</option>
-              <option value="3">Phone Call</option>
-            </select>
-          </div>
-        </div>
-
-
-        <!-- Button (Double) -->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="button1id"> </label>
-          <div class="col-md-8">
-            <button id="button1id" name="button1id" class="btn btn-success">Submit Registration</button>
-            <!-- <button id="button2id" name="button2id" class="btn btn-danger">Reset Form </button> -->
-          </div>
-        </div>
-    </div>  
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="button1id"> </label>
+      <div class="col-md-8">
+        <button id="registerButton" name="button1id" class="btn btn-success">Submit Registration</button>
+        <!-- <button id="button2id" name="button2id" class="btn btn-danger">Reset Form </button> -->
+      </div>
+    </div>
+</div>  
 </div>

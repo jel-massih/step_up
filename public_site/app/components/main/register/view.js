@@ -11,7 +11,6 @@ define(function(require, exports, module) {
 		initialize: function() {
 		},
 		events: {
-			"click #loginButton": "login",
 			"click #registerButton": "register"
 		},
 		render:function () {
@@ -22,12 +21,29 @@ define(function(require, exports, module) {
 			event.preventDefault();
 			$('.alert-error').hide();
 
-			var email = $("#inputEmail").val();
-			var password = $('#inputPassword').val();
-			var password_confirm = $('#inputPasswordConfirm').val();
+      var name = $("#nameInput").val();
+			var email = $("#emailInput").val();
+			var password = $('#passwordinput').val();
+      var membership_type = $("#membershipType").val();
+      var location = $("#selectcity").val();
 
-      if(password_confirm != password) {
-        $('.alert-error').text("The passwords must match").show();
+      if(!name) {
+        $('.alert-error').text("Your must have a name").show();
+        return;
+      }
+
+      if(!email) {
+        $('.alert-error').text("Your must have an email").show();
+        return;
+      }
+
+      if(membership_type == "0") {
+        $('.alert-error').text("Your must select a membership type").show();
+        return;
+      }
+
+      if(location == "0") {
+        $('.alert-error').text("Your must select a location").show();
         return;
       }
 
@@ -41,7 +57,7 @@ define(function(require, exports, module) {
       password = key.toString(CryptoJS.enc.Hex);
       salt = salt.toString(CryptoJS.enc.Hex);
 
-      var obj = {"email":email,"password":password, "salt":salt};
+      var obj = {"user_name": name, "email":email, "password":password, "salt":salt, "membership_type":membership_type, "location":location};
       var user = new User(obj);
       if(!user.isValid()) {
         $('.alert-error').text(user.validationError).show();
@@ -60,10 +76,6 @@ define(function(require, exports, module) {
           }
         });
       }
-		},
-		login:function(event) {
-			event.preventDefault();
-			Backbone.history.navigate('login', {trigger:true});
 		}
 	});
 

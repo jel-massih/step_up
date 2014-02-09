@@ -59,11 +59,11 @@
 
 	function register() {
     $_POST = json_decode(file_get_contents('php://input'), true);
-		if(empty($_POST['email']) || empty($_POST['password']) || empty($_POST['salt'])) {
+		if(empty($_POST['email']) || empty($_POST['password']) || empty($_POST['salt']) || empty($_POST['user_name'])) {
 			echo('{"error":{"text":"Please Fill in All Fields"}}');
 		} else {
 			$_POST['email'] = trim(strtolower($_POST['email']));
-			$error_code = dbRegister($_POST['email'], $_POST['password'], $_POST['salt']);
+			$error_code = dbRegister($_POST['email'], $_POST['password'], $_POST['salt'], $_POST['user_name'], $_POST['membership_type'], $_POST['location']);
 			switch($error_code) {
 				case 0:
 					echo('{"success":{"text":"Registration Successful!"}}');

@@ -26,11 +26,11 @@ function emailTaken($email) {
     return $q->affected_rows;
 }
 
-function addNewUser($email, $password, $salt) {
+function addNewUser($email, $password, $salt, $name, $membertype, $loc) {
     global $db_link;
-    if($q = $db_link->prepare("INSERT INTO users (`email`, `password`, `salt`) VALUES (?, ?, ?)"))
+    if($q = $db_link->prepare("INSERT INTO users (`email`, `password`, `salt`, `name`, `membership_type`, `location`) VALUES (?, ?, ?, ?, ?, ?)"))
     {
-        $q->bind_param('sss', $email, $password, $salt);
+        $q->bind_param('ssssss', $email, $password, $salt, $name, $membertype, $loc);
         if($q->execute())
         {
             $q->close();
@@ -41,7 +41,7 @@ function addNewUser($email, $password, $salt) {
     return false;
 }
 
-function dbRegister($email, $password, $salt) {
+function dbRegister($email, $password, $salt, $name, $membertype, $loc) {
     if(!check_email_address($email))
     {
         return 1;
@@ -51,7 +51,7 @@ function dbRegister($email, $password, $salt) {
         return 2;
     }
 
-    if(addNewUser($email, $password, $salt)) {
+    if(addNewUser($email, $password, $salt, $name, $membertype, $loc)) {
         return 0;
     } else {
         return 5;

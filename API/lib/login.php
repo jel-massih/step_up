@@ -53,10 +53,10 @@ function dbGetUser($uid) {
     {
         $q->bind_param('s', $uid);
         $q->execute();
-        $q->bind_result($eid,$email, $password,$salt,$access_level, $location);
+        $q->bind_result($eid,$email, $password,$salt,$access_level, $location, $name, $membertype);
 
     while($q->fetch()) {
-        $result = array("id"=>$eid, "email"=>$email, "password"=>$password, "salt"=>$salt,"access_level"=>$access_level,"location"=>$location);
+        $result = array("id"=>$eid, "email"=>$email, "password"=>$password, "salt"=>$salt,"access_level"=>$access_level,"location"=>$location,"user_name"=>$name,"membership_type"=>$membertype);
     }
 
     if ($q->errno) {
@@ -74,10 +74,10 @@ function dbGetUsers() {
     if($q = $db_link->prepare("SELECT * FROM users"))
     {
         $q->execute();
-        $q->bind_result($eid, $email, $password, $salt,$access_level, $location);
+        $q->bind_result($eid, $email, $password, $salt,$access_level, $location, $name, $membertype);
 
         while($q->fetch()) {
-            array_push($result, array("id"=>$eid, "email"=>$email, "location"=>$location));
+            array_push($result, array("id"=>$eid, "email"=>$email,"location"=>$location,"user_name"=>$name,"membership_type"=>$membertype));
         }
     }
 
