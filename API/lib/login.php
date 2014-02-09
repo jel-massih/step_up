@@ -88,4 +88,19 @@ function dbGetUsers() {
     return json_encode($result);
 }
 
+function getIDFromEmail($email) {
+    global $db_link;
+
+    if($q = $db_link->prepare("SELECT _id FROM users WHERE email = ?"))
+    {
+        $q->bind_param('s', $email);
+        $q->execute();
+        $q->bind_result($uid);
+        while($q->fetch()) {
+            return $uid;
+        }
+    }
+    return null;
+}
+
 ?>
