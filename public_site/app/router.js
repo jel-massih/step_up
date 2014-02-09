@@ -61,7 +61,10 @@ define(function(require, exports, module) {
       "events/:id": "viewEventInfo",
       "messages/:id": "viewMessage",
       "message/new": "newMessage",
-      "admin/home": "adminHome"
+      "admin": "adminHome",
+      "admin/events": "adminManageEvents",
+      "admin/messages": "adminManageMessages",
+      "admin/users": "adminManageUsers"
     },
 
     index: function() {
@@ -109,6 +112,16 @@ define(function(require, exports, module) {
     },
     adminHome: function() {
       this.MainView.goAdminHome();
-    }
+    },
+    adminManageEvents: function() {
+      this.MainView.goAdminEvents();
+    },
+    adminManageMessages: function() {
+      this.MainView.goAdminMessages();
+    },
+    adminManageUsers: function() {
+      this.MainView.goAdminUsers();
+    },
+
   });
 });

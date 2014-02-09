@@ -22,7 +22,7 @@ define(function(require, exports, module) {
       }
     },
     adminHome: function() {
-      Backbone.history.navigate("admin/home", {trigger: true});
+      Backbone.history.navigate("admin", {trigger: true});
     }
   });
 

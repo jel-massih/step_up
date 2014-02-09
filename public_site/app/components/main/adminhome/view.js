@@ -3,6 +3,10 @@ define(function(require, exports, module) {
 
   var app = require("app");
 
+  var ManageEvents = require("./events/list/view");
+  var ManageMessages = require("./messages/list/view");
+  var ManageUsers = require("./users/list/view");
+
   var AdminHome = Backbone.Layout.extend({
     template: require("ldsh!./template"),
     el:"#NewWrapper",
@@ -13,7 +17,7 @@ define(function(require, exports, module) {
     },
     manageEvents: function() {
       Backbone.history.navigate("admin/events");
-      console.log("Manage Events");
+      new ManageEvents({collection:app.eventsCollection}).render();
     },
     manageMessages: function() {
       Backbone.history.navigate("admin/messages");
