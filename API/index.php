@@ -13,6 +13,7 @@
 	$app->post('/login/:email', 'login');
 	$app->post('/logout', authenticate(), 'logout');
 	$app->post('/users', 'register');
+	$app->get('/users', 'getUserList');
 	$app->get('/user', authenticate(), 'getCurrentUserInfo');
 	$app->get('/events', 'getEvents');
 	$app->get('/events/:location', 'getEventsByLocation');
@@ -90,6 +91,15 @@
 			echo(json_encode($_SESSION['user']));
 		} else {
 			echo('{"error":{"text":"Failed to retrieve User Info"}}');
+		}
+	}
+
+	function getUserList() {
+		$results = dbGetUsers();
+		if($results != null) {
+			echo($results);
+		} else {
+			echo('{"error":{"text":"Failed to retrieve Users"}}');
 		}
 	}
 

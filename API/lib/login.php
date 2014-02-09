@@ -67,4 +67,25 @@ function dbGetUser($uid) {
   return $result;
 }
 
+function dbGetUsers() {
+    global $db_link;
+    $result = array();
+
+    if($q = $db_link->prepare("SELECT * FROM users"))
+    {
+        $q->execute();
+        $q->bind_result($eid, $email, $password, $salt,$access_level, $location);
+
+        while($q->fetch()) {
+            array_push($result, array("id"=>$eid, "email"=>$email, "location"=>$location));
+        }
+    }
+
+    if ($q->errno) {
+      return null;
+    }
+
+    return json_encode($result);
+}
+
 ?>
