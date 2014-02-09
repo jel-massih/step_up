@@ -26,11 +26,11 @@ function emailTaken($email) {
     return $q->affected_rows;
 }
 
-function addNewUser($email, $password, $salt, $name, $membertype, $loc) {
+function addNewUser($email, $password, $salt, $name, $membertype, $loc, $phone_num) {
     global $db_link;
-    if($q = $db_link->prepare("INSERT INTO users (`email`, `password`, `salt`, `name`, `membership_type`, `location`) VALUES (?, ?, ?, ?, ?, ?)"))
+    if($q = $db_link->prepare("INSERT INTO users (`email`, `password`, `salt`, `name`, `membership_type`, `location`, `phone_number`) VALUES (?, ?, ?, ?, ?, ?, ?)"))
     {
-        $q->bind_param('ssssss', $email, $password, $salt, $name, $membertype, $loc);
+        $q->bind_param('sssssss', $email, $password, $salt, $name, $membertype, $loc, $phone_num);
         if($q->execute())
         {
             $q->close();
@@ -41,7 +41,7 @@ function addNewUser($email, $password, $salt, $name, $membertype, $loc) {
     return false;
 }
 
-function dbRegister($email, $password, $salt, $name, $membertype, $loc) {
+function dbRegister($email, $password, $salt, $name, $membertype, $loc, $phone_num) {
     if(!check_email_address($email))
     {
         return 1;
@@ -51,7 +51,7 @@ function dbRegister($email, $password, $salt, $name, $membertype, $loc) {
         return 2;
     }
 
-    if(addNewUser($email, $password, $salt, $name, $membertype, $loc)) {
+    if(addNewUser($email, $password, $salt, $name, $membertype, $loc, $phone_num)) {
         dbSendMessage($email, 1, "Welcome to Step Up Network!", "At this site you are able to get the latest news about upcoming events! You can also chat with fellow mentors and mentees \
             \n\nWe will also be sending out blast messages on occasion for event updates, so be sure to check the site occasionally!", "admin@suwn.com", "Turtle-Saurus");
         return 0;

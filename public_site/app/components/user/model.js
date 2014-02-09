@@ -11,7 +11,8 @@ define(function(require, exports, module) {
       salt: '',
       membership_type: '',
       access_level: "0",
-      location: ''
+      location: '',
+      phone_num: ''
     },
     validate: function(attributes) {
       if(!attributes.email) {

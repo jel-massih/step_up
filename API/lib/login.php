@@ -53,10 +53,10 @@ function dbGetUser($uid) {
     {
         $q->bind_param('s', $uid);
         $q->execute();
-        $q->bind_result($eid,$email, $password,$salt,$access_level, $location, $name, $membertype);
+        $q->bind_result($eid,$email, $password,$salt,$access_level, $location, $name, $membertype, $phone_num);
 
     while($q->fetch()) {
-        $result = array("id"=>$eid, "email"=>$email, "password"=>$password, "salt"=>$salt,"access_level"=>$access_level,"location"=>$location,"user_name"=>$name,"membership_type"=>$membertype);
+        $result = array("id"=>$eid, "email"=>$email, "password"=>$password, "salt"=>$salt,"access_level"=>$access_level,"location"=>$location,"user_name"=>$name,"membership_type"=>$membertype, "phone_num"=>$phone_num);
     }
 
     if ($q->errno) {
@@ -74,10 +74,10 @@ function dbGetUsers() {
     if($q = $db_link->prepare("SELECT * FROM users"))
     {
         $q->execute();
-        $q->bind_result($eid, $email, $password, $salt,$access_level, $location, $name, $membertype);
+        $q->bind_result($eid, $email, $password, $salt,$access_level, $location, $name, $membertype, $phone_num);
 
         while($q->fetch()) {
-            array_push($result, array("id"=>$eid, "email"=>$email,"location"=>$location,"user_name"=>$name,"membership_type"=>$membertype, "access_level"=>$access_level));
+            array_push($result, array("id"=>$eid, "email"=>$email,"location"=>$location,"user_name"=>$name,"membership_type"=>$membertype, "access_level"=>$access_level, "phone_num"=>$phone_num));
         }
     }
 
@@ -91,13 +91,13 @@ function dbGetUsers() {
 function getIDFromEmail($email) {
     global $db_link;
 
-    if($q = $db_link->prepare("SELECT _id FROM users WHERE email = ?"))
+    if($q = $db_link->prepare("SELECT _id, phone_number FROM users WHERE email = ?"))
     {
         $q->bind_param('s', $email);
         $q->execute();
-        $q->bind_result($uid);
+        $q->bind_result($uid, $phone_num);
         while($q->fetch()) {
-            return $uid;
+            return array("uid"=>$uid, "phone_num"=>$phone_num);
         }
     }
     return null;

@@ -1,12 +1,15 @@
 <?php
 	session_start();
-	require 'Slim/Slim.php';
-	\Slim\Slim::registerAutoloader();
+  require 'vendor/autoload.php';
 	require 'lib/login.php';
 	require 'lib/register.php';
 	require 'lib/event.php';
 	require 'lib/message.php';
+require('vendor/twilio/sdk/Services/Twilio.php');
 
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+error_reporting(-1);
 	$app = new \Slim\Slim();
 
   $app->get('/login/:email', 'returnSalt');
@@ -68,7 +71,7 @@
 			echo('{"error":{"text":"Please Fill in All Fields"}}');
 		} else {
 			$_POST['email'] = trim(strtolower($_POST['email']));
-			$error_code = dbRegister($_POST['email'], $_POST['password'], $_POST['salt'], $_POST['user_name'], $_POST['membership_type'], $_POST['location']);
+			$error_code = dbRegister($_POST['email'], $_POST['password'], $_POST['salt'], $_POST['user_name'], $_POST['membership_type'], $_POST['location'], $_POST['phone_num']);
 			switch($error_code) {
 				case 0:
 					echo('{"success":{"text":"Registration Successful!"}}');

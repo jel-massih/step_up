@@ -26,6 +26,7 @@ define(function(require, exports, module) {
 			var password = $('#passwordinput').val();
       var membership_type = $("#membershipType").val();
       var location = $("#selectcity").val();
+      var phone = $("#phoneInput").val();
 
       if(!name) {
         $('.alert-error').text("Your must have a name").show();
@@ -57,7 +58,7 @@ define(function(require, exports, module) {
       password = key.toString(CryptoJS.enc.Hex);
       salt = salt.toString(CryptoJS.enc.Hex);
 
-      var obj = {"user_name": name, "email":email, "password":password, "salt":salt, "membership_type":membership_type, "location":location};
+      var obj = {"user_name": name, "email":email, "password":password, "salt":salt, "membership_type":membership_type, "location":location, "phone_num":phone};
       var user = new User(obj);
       if(!user.isValid()) {
         $('.alert-error').text(user.validationError).show();
