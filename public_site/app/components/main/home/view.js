@@ -3,6 +3,8 @@ define(function(require, exports, module) {
 
   var app = require("app");
   
+  var Events = require("./events/index");
+  var Messages = require("./messages/index");
 
   var Layout = Backbone.Layout.extend({
     el:"#NewWrapper",
