@@ -12,24 +12,30 @@ define(function(require, exports, module) {
       return {messages: this.collection};
     },
     beforeRender: function() {
-      if(this.collection.length) {
-        $('#messagesPanel').html("");
+      if(this.collection) {
+        this.collection.each(function(message) {
+          this.insertView("#messageListInsertPoint", new Item({
+            model:message
+          }));
+        }, this);
+      }
+    },
+    afterRender: function() {
+      if(this.collection && this.collection.length) {
+        $('#messagePanel').html("");
       } else {
         console.log(app.router.user.isValid());
         if(app.router.user.isValid()) {
-          $('#messagesPanel').html("You Have no new Messages!");
+          $('#messagePanel').html("You Have no new Messages!");
         } else {
-          $('#messagesPanel').html("Please Sign in to view messages.");
+          $('#messagePanel').html("Please Sign in to view messages.");
         }
       }
-      this.collection.each(function(message) {
-        this.insertView("#messageListInsertPoint", new Item({
-          model:message
-        }));
-      }, this);
     },
     initialize: function() {
-      this.listenTo(this.collection, "reset sync request", this.render);
+      if(this.collection) {
+        this.listenTo(this.collection, "reset sync request", this.render);
+      }
     }
   });
 
