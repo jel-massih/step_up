@@ -5,6 +5,7 @@
 	require 'lib/login.php';
 	require 'lib/register.php';
 	require 'lib/event.php';
+	require 'lib/message.php';
 
 	$app = new \Slim\Slim();
 

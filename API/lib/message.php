@@ -3,7 +3,6 @@
     global $db_link;
 
     $result = array();
-
     if($q = $db_link->prepare("SELECT * FROM user_msgs WHERE `reciever_id` = ?"))
     {
       $q->bind_param('s', $userid);
@@ -11,7 +10,7 @@
       $q->bind_result($mid,$sender_id, $reciever_id,$title,$body);
 
       while($q->fetch()) {
-        array_push($result, array("id"=>$mid, "message_title"=>$loc,"message_body"=>$start_date,"sender_id"=>$sender_id));
+        array_push($result, array("id"=>$mid, "message_title"=>$title,"message_body"=>$body,"sender_id"=>$sender_id));
       }
 
       if ($q->errno) {
