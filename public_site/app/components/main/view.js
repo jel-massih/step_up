@@ -9,8 +9,9 @@ define(function(require, exports, module) {
   var Login = require("./login/view");
   var Register = require("./register/view");
   var EventDetail = require("./eventdetail/view");
-  var MessageView = require("./messageview/view")
-  var NewMessageView = require("./newmessageview/view")
+  var MessageView = require("./messageview/view");
+  var NewMessageView = require("./newmessageview/view");
+  var AdminHome = require("./adminhome/view")
 
   var Layout = Backbone.Layout.extend({
     el:"main",
@@ -103,6 +104,15 @@ define(function(require, exports, module) {
           new NewMessageView({collection: app.usersCollection}).render();
         }
         this.currentPage = "newMessage";
+      }
+    },
+    goAdminHome: function() {
+      if(!app.router.user.isValid()) {
+        Backbone.history.navigate('/', {trigger: true});
+      }
+      if(this.currentPage != "adminHome") {
+        new AdminHome().render();
+        this.currentPage = "adminhome";
       }
     }
   });

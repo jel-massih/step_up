@@ -60,7 +60,8 @@ define(function(require, exports, module) {
       "logout":"logout",
       "events/:id": "viewEventInfo",
       "messages/:id": "viewMessage",
-      "message/new": "newMessage"
+      "message/new": "newMessage",
+      "admin/home": "adminHome"
     },
 
     index: function() {
@@ -105,6 +106,9 @@ define(function(require, exports, module) {
     },
     newMessage: function() {
       this.MainView.goNewMessage();
+    },
+    adminHome: function() {
+      this.MainView.goAdminHome();
     }
   });
 });
