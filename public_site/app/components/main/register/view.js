@@ -3,10 +3,10 @@ define(function(require, exports, module) {
 
   var app = require("app");
   var Backbone = require("backbone");
-  var User = require("../model");
+  var User = require("../../user/model");
 
   var RegisterView = Backbone.Layout.extend({
-    el:"main",
+    el:"#NewWrapper",
   	template: require("ldsh!./template"),
 		initialize: function() {
 		},

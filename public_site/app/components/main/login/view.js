@@ -4,13 +4,12 @@ define(function(require, exports, module) {
   var Backbone = require("backbone");
   var app = require("app");
   var LoginView = Backbone.Layout.extend({
-    el:"main",
+    el:"#NewWrapper",
   	template: require("ldsh!./template"),
 		initialize: function() {
 		},
 		events: {
-			"click #loginButton": "login",
-			"click #registerButton": "register"
+			"click #loginButton": "login"
 		},
 		render:function () {
 			$(this.el).html(this.template());
@@ -53,10 +52,6 @@ define(function(require, exports, module) {
 					}
 				}
 			});
-		},
-		register:function(event) {
-			event.preventDefault();
-      Backbone.history.navigate('register', {trigger:true});
 		}
 	});
 
