@@ -61,12 +61,11 @@ The AMP-packages listed above all include Phpmyadmin. The following three steps 
    2. Open step_up/Dump20140209.sql
    3. Press Go  
 
-#### Step 6: Setup Directus
-Open `step_up/API/liv/db.setup.php` Add the database username and password from Step 5 to *DB_USER* and *DB_PASSWORD*. Save the file as ```step_up/API/db.php```
+#### Step 6: Setup StepUp
+Open `step_up/API/liv/db.setup.php` Add the database username and password from Step 5 to *db_link*. Save the file as ```step_up/API/db.php```
 
 ```
-define('DB_USER', 		'myusername');
-define('DB_PASSWORD',	'mypassword');
+db_link 
 ```
 #### Step 7: Install Bower Dependencies
 
