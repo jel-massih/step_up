@@ -8,7 +8,6 @@ define(function(require, exports, module) {
     template: require("ldsh!./template"),
     tagName: "div",
     el:"#adminPanel",
-    className: "list-group",
     serialize: function() {
       return {events: this.collection};
     },
