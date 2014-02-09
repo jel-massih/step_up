@@ -14,11 +14,18 @@ define(function(require, exports, module) {
       this.listenTo(this.model, "change", this.render);
     },
     events: {
-      "click #editBtn": "editUser"
+      "click #editBtn": "editUser",
+      "click #deleteBtn": "deleteUser"
     },
     editUser: function(e) {
       e.preventDefault();
       new UpdateUser({user: this.model}).render();
+    },
+    deleteUser: function(e) {
+      e.preventDefault();
+      this.model.destroy({success: function() {
+        Backbone.history.navigate('admin', {trigger: true});
+      }});
     }
   });
 

@@ -103,4 +103,15 @@ function getIDFromEmail($email) {
     return null;
 }
 
+function dbDeleteUser($uid) {
+  global $db_link;
+  if($q = $db_link->prepare("DELETE FROM users WHERE `_id`=?;"))
+  {
+      $q->bind_param('s', $uid);
+      $q->execute();
+      $q->close();
+  }
+  return false;
+}
+
 ?>

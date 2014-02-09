@@ -15,6 +15,7 @@
 	$app->post('/users', 'register');
   $app->get('/users', 'getUserList');
 	$app->put('/users/:id',authenticate(), administrate(), 'updateUser');
+  $app->delete('/users/:id', authenticate(), administrate(), 'deleteUser');
 	$app->get('/user', authenticate(), 'getCurrentUserInfo');
 	$app->get('/events', 'getEvents');
 	$app->get('/events/loc/:location', 'getEventsByLocation');
@@ -120,6 +121,11 @@
         echo('{"error":{"text":"Failed to Update User"}}');
       }
     }
+  }
+
+  function deleteUser($id) {
+    dbDeleteUser($id);
+    echo('{}');
   }
 
 	function getEvents() {
