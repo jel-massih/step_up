@@ -6,9 +6,6 @@ define(function(require, exports, module) {
   var Layout = Backbone.Layout.extend({
     el:"#headercontent",
     template: require("ldsh!./template"),
-    initialize: function() {
-      this.render();
-    },
     events: {
       "click #registerbtn": "register",
       "click #signinbtn": "login"

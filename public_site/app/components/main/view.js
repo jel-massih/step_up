@@ -18,31 +18,23 @@ define(function(require, exports, module) {
       }
     },
     afterRender: function() {
-      var view;
       if(app.router.user.isValid() && this.currentNavState == "loggedin") {
-        view = new LoggedInView({model: app.router.user});
+        this.insertView("#headercontent", new LoggedInView({model: app.router.user}).render());
         this.currentNavState = "loggedin";
       } else {
-        view = new LoggedOutView();
+        this.insertView("#headercontent", new LoggedOutView().render());
         this.currentNavState = "loggedout";
       }
-      this.setView("#headercontent", view);
-      //this.setView("#NewWrapper", new Events.Views.List({collection: this.eventsCollection}));
-      view.render();
     },
     userUpdate: function() {
-      var view;
       if(app.router.user.isValid()) {
         if(this.currentNavState != "loggedin") {
-          view = new LoggedInView({model: app.router.user});
-          this.setView("#headercontent", view);
+          this.insertView("#headercontent", new LoggedInView({model: app.router.user}).render());
           this.currentNavState = "loggedin";
-          view.render();
         }
       } else {
         if(this.currentNavState != "loggedout") {
-          view = new LoggedOutView();
-          this.setView("#headercontent", view);
+          this.insertView("#headercontent", new LoggedOutView().render());
           this.currentNavState = "loggedout";
         }
       }

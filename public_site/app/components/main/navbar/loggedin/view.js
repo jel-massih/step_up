@@ -9,14 +9,14 @@ define(function(require, exports, module) {
     serialize: function() {
       return {model: this.model};
     },
-    initialize: function() {
-      this.render();
-    },
     events: {
       "click #logoutbtn": "logout"
     },
     logout: function() {
       Backbone.history.navigate('logout', {trigger: true});
+    },
+    initialize: function() {
+      console.log("init");
     }
   });
 
