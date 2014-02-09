@@ -15,7 +15,12 @@ define(function(require, exports, module) {
       if(this.collection.length) {
         $('#messagesPanel').html("");
       } else {
-        $('#messagesPanel').html("You Have no new Messages!");
+        console.log(app.router.user.isValid());
+        if(app.router.user.isValid()) {
+          $('#messagesPanel').html("You Have no new Messages!");
+        } else {
+          $('#messagesPanel').html("Please Sign in to view messages.");
+        }
       }
       this.collection.each(function(message) {
         this.insertView("#messageListInsertPoint", new Item({
