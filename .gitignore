@@ -2,5 +2,5 @@ public_site/dist/
 public_site/node_modules/
 public_site/vendor/bower/
 public_site/test/
-API/vendor
-API/lib/db.php
+api/vendor
+api/lib/db.php

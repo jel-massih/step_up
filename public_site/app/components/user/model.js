@@ -22,7 +22,7 @@ define(function(require, exports, module) {
         return 'You must have a name';
       }
     },
-    urlRoot: '../API/index.php/users'
+    urlRoot: '../api/index.php/users'
   })
 
   module.exports = User;

@@ -22,7 +22,7 @@ define(function(require, exports, module) {
       var email = $("#inputEmail").val();
       var password = $('#inputPassword').val()
 
-			var url = '../API/index.php/login/' + email;
+			var url = '../api/index.php/login/' + email;
 
 			$.ajax({
 				url:url,

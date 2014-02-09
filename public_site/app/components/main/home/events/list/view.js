@@ -13,7 +13,8 @@ define(function(require, exports, module) {
       return {events: this.collection};
     },
     beforeRender: function() {
-     this.collection.each(function(my_event) {
+
+      this.collection.each(function(my_event) {
         this.insertView("#listInsertPoint", new Item({
           model:my_event
         }));
