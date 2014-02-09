@@ -20,7 +20,8 @@ define(function(require, exports, module) {
     events: {
       "click #editEvent": "UpdateEvent"
     },
-    UpdateEvent: function() {
+    UpdateEvent: function(e) {
+      e.preventDefault();
       var name = $('#nameInput').val();
       var desc = $('#descriptionInput').val();
       var date = $('#dateInput').val();
@@ -47,7 +48,8 @@ define(function(require, exports, module) {
             if(response.error) {
               $('.alert-error').text(response.error.text).show();
             } else {
-              app.eventsCollection.fetch();
+              console.log(app);
+              app.eventsCollection  .fetch();
               Backbone.history.navigate("/", {trigger:true});
             }
           }

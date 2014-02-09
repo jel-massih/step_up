@@ -42,19 +42,19 @@
 	  return json_encode($result);
 	}
 
-	function dbUpdatePassword($eid, $event_name, $event_desc, $location, $start_date, $start_time) {
-  global $db_link;
+	function dbUpdateEvent($eid, $event_name, $event_desc, $location, $start_date, $start_time) {
+	  global $db_link;
 
-  if($q = $db_link->prepare("UPDATE events SET `name`=?, `desc`=?, `location`=?, `start_date`=?, `start_time`=? WHERE `_id`=?"))
-  {
-      $q->bind_param('ssssss', $event_name, $event_desc, $location, $start_date, $start_time, $eid);
-      if($q->execute())
-      {
-          $q->close();
-          return true;
-      }
-      $q->close();
-  }
-  return false;
-}
+	  if($q = $db_link->prepare("UPDATE events SET `name`=?, `desc`=?, `location`=?, `start_date`=?, `start_time`=? WHERE `_id`=?"))
+	  {
+	      $q->bind_param('ssssss', $event_name, $event_desc, $location, $start_date, $start_time, $eid);
+	      if($q->execute())
+	      {
+	          $q->close();
+	          return true;
+	      }
+	      $q->close();
+	  }
+	  return false;
+	}
 ?>

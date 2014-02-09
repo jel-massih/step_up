@@ -135,7 +135,6 @@
         echo('{"error":{"text":"Failed to Update Password"}}');
       }
     }
-  }
 	}
 
 	function getLoggedInUserMessages() {
