@@ -60,12 +60,12 @@ function dbRegister($email, $password, $salt, $name, $membertype, $loc) {
     }
 }
 
-function dbUpdateUser($uid, $email, $event_desc, $location, $start_date, $start_time) {
+function dbUpdateUser($uid,$name, $membertype, $loc, $access_level) {
       global $db_link;
 
-      if($q = $db_link->prepare("UPDATE events SET `name`=?, `desc`=?, `location`=?, `start_date`=?, `start_time`=? WHERE `_id`=?"))
+      if($q = $db_link->prepare("UPDATE users SET `name`=?, `membership_type`=?, `location`=?, `access_level`=? WHERE `_id`=?"))
       {
-          $q->bind_param('ssssss', $event_name, $event_desc, $location, $start_date, $start_time, $eid);
+          $q->bind_param('sssss', $name, $membertype, $loc, $access_level, $uid);
           if($q->execute())
           {
               $q->close();

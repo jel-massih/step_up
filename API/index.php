@@ -114,7 +114,7 @@
     if(empty($_PUT['id'])) {
       echo('{"error":{"text":"Please Fill in a email"}}');
     } else {
-      if(dbUpdateUser($_PUT['id'], $_POST['user_name'], $_POST['membership_type'], $_POST['location'], $_POST['access_level'])) {
+      if(dbUpdateUser($_PUT['id'], $_PUT['user_name'], $_PUT['membership_type'], $_PUT['location'], $_PUT['access_level'])) {
         echo('{"success":{"text":"Successfully Updated User!"}}');
       } else {
         echo('{"error":{"text":"Failed to Update User"}}');
