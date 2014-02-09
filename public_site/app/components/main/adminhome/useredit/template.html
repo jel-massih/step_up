@@ -1,6 +1,6 @@
-<span style= "display:inline block ">
+<span style= "display:block; margin: 0 auto; width:200px;">
     <img class="logo" src="app/img/SULogoTop.gif"  alt="">
-    <h3> Update User Form </h3>
+    <h3> Update User </h3>
 </span>  
 <div class="alert-error" style="display:none; color:red"></div>
 <div id="wrapper" style="width:700px;margin:0 auto">
@@ -12,14 +12,6 @@
       <label class="col-md-4 control-label" for="textinput">Name</label>  
       <div class="col-md-4">
       <input id="nameInput" name="textinput" placeholder="Enter Your Real Name" value="<%= model.get("user_name") %>" class="form-control input-md" type="text">
-        
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="textinput2">Email</label>  
-      <div class="col-md-4">
-      <input id="emailInput" value="<%= model.get("email") %>" name="textinput2" placeholder="your@email.com" class="form-control input-md" type="text">
         
       </div>
     </div>

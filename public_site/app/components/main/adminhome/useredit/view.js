@@ -11,14 +11,13 @@ define(function(require, exports, module) {
       "click #updateButton": "update"
     },
     serialize: function() {
-      return {model: this.model};
+      return {model: this.user};
     },
     update:function(event) {
       event.preventDefault();
       $('.alert-error').hide();
 
       var name = $("#nameInput").val();
-      var email = $("#emailInput").val();
       var password = $('#passwordinput').val();
       var membership_type = $("#membershipType").val();
       var location = $("#selectcity").val();
@@ -26,11 +25,6 @@ define(function(require, exports, module) {
 
       if(!name) {
         $('.alert-error').text("Your must have a name").show();
-        return;
-      }
-
-      if(!email) {
-        $('.alert-error').text("Your must have an email").show();
         return;
       }
 
@@ -44,7 +38,7 @@ define(function(require, exports, module) {
         return;
       }
 
-      var obj = {"user_name": name, "email":email, "membership_type":membership_type, "location":location, "access_level": access_level};
+      var obj = {"user_name": name, "membership_type":membership_type, "location":location, "access_level": access_level};
       if(!this.user) {
         Backbone.history.navigate('admin', {trigger:true});
       }

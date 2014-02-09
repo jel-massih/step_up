@@ -1,4 +1,4 @@
-<span style= "display:inline block ">
+<span style= "display:block; margin: 0 auto; width:200px;">
     <img class="logo" src="app/img/SULogoTop.gif"  alt="">
     <h3 id="eventFormTitle">Edit Event Form </h3>
   <div class="alert-error" style="display:none; color:red"></div>
@@ -20,7 +20,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="textinput2">Event Description</label>  
       <div class="col-md-4">
-      <input id="descriptionInput" name="textinput2" value="<%= model.get("event_desc") %>" class="form-control input-md" type="text">
+      <textarea id="descriptionInput" name="textinput2" class="form-control input-md" ><%= model.get("event_desc") %></textarea>
         
       </div>
     </div>

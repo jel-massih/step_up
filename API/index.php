@@ -13,7 +13,8 @@
 	$app->post('/login/:email', 'login');
 	$app->post('/logout', authenticate(), 'logout');
 	$app->post('/users', 'register');
-	$app->get('/users', 'getUserList');
+  $app->get('/users', 'getUserList');
+	$app->put('/users/:id',authenticate(), administrate(), 'updateUser');
 	$app->get('/user', authenticate(), 'getCurrentUserInfo');
 	$app->get('/events', 'getEvents');
 	$app->get('/events/loc/:location', 'getEventsByLocation');
@@ -107,6 +108,20 @@
 		}
 	}
 
+  function updateUser($id) {
+    global $app;
+    $_PUT = json_decode($app->request()->getBody(), true);
+    if(empty($_PUT['id'])) {
+      echo('{"error":{"text":"Please Fill in a email"}}');
+    } else {
+      if(dbUpdateUser($_PUT['id'], $_POST['user_name'], $_POST['membership_type'], $_POST['location'], $_POST['access_level'])) {
+        echo('{"success":{"text":"Successfully Updated User!"}}');
+      } else {
+        echo('{"error":{"text":"Failed to Update User"}}');
+      }
+    }
+  }
+
 	function getEvents() {
 		$results = dbGetEvents();
 		if($results != null) {
@@ -132,9 +147,9 @@
       echo('{"error":{"text":"Please Fill in a Name"}}');
     } else {
       if(dbUpdateEvent($_PUT['id'], $_PUT['event_name'], $_PUT['event_desc'], $_PUT['event_loc'], $_PUT['event_start_date'], $_PUT['event_start_time'])) {
-        echo('{"success":{"text":"Successfully Updated Password!"}}');
+        echo('{"success":{"text":"Successfully Updated Event!"}}');
       } else {
-        echo('{"error":{"text":"Failed to Update Password"}}');
+        echo('{"error":{"text":"Failed to Update Event"}}');
       }
     }
 	}
