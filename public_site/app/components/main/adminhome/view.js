@@ -26,6 +26,9 @@ define(function(require, exports, module) {
     manageUsers: function() {
       Backbone.history.navigate("admin/users");
       console.log("Manage Users");
+    },
+    afterRender: function() {
+      this.manageEvents();
     }
   });
 

@@ -7,16 +7,16 @@ define(function(require, exports, module) {
   var Layout = Backbone.Layout.extend({
     template: require("ldsh!./template"),
     tagName: "div",
+    el:"#adminPanel",
     className: "list-group",
     serialize: function() {
       return {events: this.collection};
     },
     beforeRender: function() {
-      console.log(this.collection);
       this.collection.each(function(my_event) {
         this.insertView("#listInsertPoint", new Item({
           model:my_event
-        }));
+        }).render());
       }, this);
     },
     initialize: function() {

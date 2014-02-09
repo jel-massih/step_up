@@ -110,6 +110,7 @@ define(function(require, exports, module) {
       if(!app.router.user.isValid()) {
         Backbone.history.navigate('/', {trigger: true});
       }
+      Backbone.history.navigate('admin');
       if(this.currentPage != "adminHome") {
         new AdminHome().render();
         this.currentPage = "adminhome";
