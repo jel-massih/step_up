@@ -12,7 +12,12 @@ define(function(require, exports, module) {
       return {messages: this.collection};
     },
     beforeRender: function() {
-     this.collection.each(function(message) {
+      if(this.collection.length) {
+        $('#messagesPanel').html("");
+      } else {
+        $('#messagesPanel').html("You Have no new Messages!");
+      }
+      this.collection.each(function(message) {
         this.insertView("#messageListInsertPoint", new Item({
           model:message
         }));

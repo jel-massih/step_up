@@ -14,9 +14,6 @@ define(function(require, exports, module) {
     },
     logout: function() {
       Backbone.history.navigate('logout', {trigger: true});
-    },
-    initialize: function() {
-      console.log("init");
     }
   });
 

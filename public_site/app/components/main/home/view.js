@@ -9,14 +9,20 @@ define(function(require, exports, module) {
     el:"#NewWrapper",
     template: require("ldsh!./template"),
     initialize: function() {
-      this.eventsCollection = new Events.Collection();
-      this.eventsCollection.fetch();
-      this.messageCollection = new Messages.Collection();
-      this.messageCollection.fetch();
+      if(!app.eventsCollection) {
+        app.eventsCollection = new Events.Collection();
+      }
+      app.eventsCollection.fetch();
+      if(!app.messageCollection) {
+        app.messageCollection = new Messages.Collection();
+      }
+      app.messageCollection.fetch();
     },
     afterRender: function() {
-      this.setView("#eventsPanel", new Events.Views.List({collection: this.eventsCollection}));
-      this.setView("#messagesPanel", new Messages.Views.List({collection: this.messageCollection}));
+      app.messageCollection.fetch();
+      app.eventsCollection.fetch();
+      this.insertView("#eventsPanel", new Events.Views.List({collection: app.eventsCollection}));
+      this.insertView("#messagesPanel", new Messages.Views.List({collection: app.messageCollection}));
     }
   });
 

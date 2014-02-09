@@ -4,8 +4,6 @@ define(function(require, exports, module) {
   // External dependencies.
   var Backbone = require("backbone");
 
-  var Login = require("components/user/login/view");
-  var Register = require("components/user/register/view");
   var Main = require("components/main/view");
   var app = require("app");
 
@@ -15,6 +13,7 @@ define(function(require, exports, module) {
   module.exports = Backbone.Router.extend({
     initialize: function() {
       this.MainView = new Main();
+      this.MainView.render();
       this.user = new UserModel({});
       var that = this;
       this.user.on("change", function() {
@@ -39,14 +38,13 @@ define(function(require, exports, module) {
     },
 
     index: function() {
-      this.MainView.render();
       this.MainView.goHome();
     },
     login: function() {
-      new Login().render();
+      this.MainView.goLogin();
     },
     register: function() {
-      new Register().render();
+      this.MainView.goRegister();
     },
     logout: function() {
       var url = '../api/index.php/logout';
@@ -59,7 +57,11 @@ define(function(require, exports, module) {
           if(data.error) {
             console.log("Error Logging Out");
           } else {
-            that.user = new UserModel({});
+            that.user.clear();
+            if(app.messageCollection.length) {
+              app.messageCollection.reset();
+            }
+            $('#messagesPanel').html("Please Sign in to view messages.");
           }
           Backbone.history.navigate('/', {trigger:true});
         },
