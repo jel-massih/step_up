@@ -70,8 +70,9 @@ define('DB_PASSWORD',	'mypassword');
 ```
 #### Step 7: Install Bower Dependencies
 
-# Navigate to the /public_site folder
+ Navigate to the /public_site folder
 
+```
 # Install global dependencies.  Depending on your user account you may need to
 # gain elevated privileges using something like `sudo`.
 npm install -g grunt-cli bower
@@ -84,7 +85,7 @@ npm install
 
 # Install Bower dependencies.
 bower install
-
+```
 
 
 #### Step 8: Done!
