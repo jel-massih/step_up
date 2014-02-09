@@ -1,0 +1,112 @@
+DROP TABLE `users`;
+
+CREATE TABLE `users` (
+  `id` mediumint(8) unsigned NOT NULL auto_increment,
+  `FirstName` varchar(255) default NULL,
+  `LastName` varchar(255) default NULL,
+  `Email` varchar(255) default NULL,
+  `City` varchar(255) default NULL,
+  `Level` varchar(255) default NULL,
+  PRIMARY KEY (`id`)
+) AUTO_INCREMENT=1;
+
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Lana","Beck","sit@imperdietullamcorperDuis.ca","LA","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Ivana","George","in@aliquameuaccumsan.co.uk","LA","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Velma","Bishop","natoque.penatibus.et@Duisvolutpatnunc.co.uk","NY","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Nayda","Sharp","nec@Suspendisseseddolor.com","NY","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("India","Ross","ut@euismodest.edu","LA","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Shelby","Malone","vel.turpis.Aliquam@Cras.edu","LA","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Kylynn","Phillips","orci.Ut@dolor.ca","Chicago","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Dawn","Douglas","senectus.et.netus@ipsumdolor.org","NY","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Kay","Baxter","Integer.id.magna@ultricesposuerecubilia.co.uk","Chicago","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Remedios","Smith","sit@temporarcu.net","Chicago","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Ariel","Velazquez","felis@risusodio.net","LA","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Whilemina","Dennis","tellus.Nunc@Aeneangravidanunc.edu","LA","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Orla","Guerra","scelerisque.mollis.Phasellus@facilisis.com","LA","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Avye","Bright","vitae.orci@natoquepenatibus.co.uk","NY","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Bertha","Patton","montes.nascetur.ridiculus@scelerisque.org","LA","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Cheryl","Sheppard","laoreet.lectus@dapibusquamquis.net","LA","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Selma","Rosario","tellus@tortornibh.net","NY","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Wyoming","Bradley","ut.mi.Duis@interdumSedauctor.co.uk","LA","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Tamekah","Spears","a.facilisis@luctusvulputate.org","NY","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Jade","Gomez","ultrices@conubia.org","NY","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Rhea","Gordon","et@orcilacus.org","Chicago","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Jillian","Mcguire","velit@diamat.net","NY","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Tara","Holcomb","quam@ametluctus.com","NY","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Dominique","Price","sodales.Mauris@lacinia.ca","LA","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Cassidy","Dyer","lectus.pede@felisadipiscing.org","Chicago","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Morgan","Buckner","Cras.eu.tellus@loremeget.ca","LA","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Camille","Mullen","Donec.at@commodoatlibero.edu","NY","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Linda","Franco","amet.massa@Maecenas.co.uk","NY","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Morgan","Mcbride","non@necurna.com","Chicago","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Clio","Raymond","leo.in.lobortis@nonhendrerit.co.uk","LA","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Nomlanga","Curry","ipsum.Phasellus.vitae@ipsumac.net","NY","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Jolie","Schneider","et.eros@sempercursus.co.uk","NY","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Nichole","Cox","tincidunt.neque.vitae@nec.com","Chicago","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Joan","Walsh","sit@ipsumPhasellusvitae.com","LA","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Madison","Chang","Sed@iaculislacus.ca","Chicago","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Jillian","Howe","hendrerit@velvulputateeu.ca","LA","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Kylan","Moran","fermentum@bibendumullamcorper.net","NY","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Sandra","Blackburn","Proin@utdolor.com","NY","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Nayda","Contreras","erat.volutpat@atortor.ca","NY","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Britanney","Kramer","Proin.nisl@Donecat.edu","NY","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Noel","Jimenez","dignissim.Maecenas@liberoDonec.edu","Chicago","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Madonna","Wilkins","turpis.egestas.Aliquam@urnaet.org","Chicago","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Robin","Logan","dolor.nonummy.ac@anteblandit.ca","LA","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Yoshi","Simon","sed.facilisis.vitae@ategestasa.co.uk","LA","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Sade","Hogan","Suspendisse@eunulla.com","NY","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Hanae","Barnett","justo@malesuadafames.com","NY","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Jaden","Shepherd","vel.vulputate@etlaciniavitae.edu","LA","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Tatyana","Santiago","cursus.Nunc.mauris@enimsitamet.org","LA","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Kessie","Morris","tellus.Phasellus@vitae.ca","NY","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Zia","West","magna@leoVivamus.org","NY","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Joy","Meadows","at@risusDonec.org","LA","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Sacha","Rivers","rutrum.eu@etmalesuadafames.net","Chicago","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Barbara","Miller","mauris.ipsum.porta@metus.com","LA","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Kim","House","vitae@magna.edu","LA","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Mechelle","Dyer","Integer.aliquam.adipiscing@turpisnec.edu","NY","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Rana","Kinney","iaculis@utnisi.net","NY","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Jeanette","Lawrence","Duis.at.lacus@enim.edu","NY","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Briar","Norton","sed.est.Nunc@consectetuermauris.ca","Chicago","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Sacha","Hobbs","Sed.eget@elitpharetraut.com","LA","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Hiroko","Barker","id.enim.Curabitur@Maurisut.com","NY","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Halla","Stokes","justo@elitfermentumrisus.co.uk","LA","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Kiona","James","pellentesque@vitaediam.co.uk","LA","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Sloane","David","Ut.semper.pretium@facilisisegetipsum.org","LA","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Giselle","Olson","nulla@idlibero.co.uk","LA","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Violet","Brooks","penatibus@eueleifendnec.net","Chicago","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Eliana","Lee","erat.Etiam.vestibulum@feugiatplacerat.net","LA","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Hope","Walters","amet@mollislectuspede.edu","LA","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Jacqueline","Bullock","ipsum.leo@ut.org","NY","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Barbara","Morris","augue.eu@vellectusCum.edu","NY","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Maxine","Lott","gravida@nec.edu","LA","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Shelly","David","eu.tellus@vestibulumneceuismod.ca","LA","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Galena","Brooks","non.egestas.a@fermentumrisusat.net","LA","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Glenna","Eaton","lectus@consectetuer.edu","Chicago","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Virginia","Townsend","et.commodo@CuraePhasellusornare.ca","LA","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Octavia","Patton","non.sapien.molestie@loremfringillaornare.co.uk","NY","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Stephanie","Wiley","orci.consectetuer.euismod@vestibulumneque.com","LA","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Jaquelyn","Noble","velit.Aliquam.nisl@Nullamenim.edu","LA","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Jolie","Glenn","scelerisque@feugiatmetussit.com","Chicago","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Kalia","Bernard","lorem.sit@sedleoCras.org","LA","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Eugenia","Jarvis","felis.Nulla@Integervulputate.ca","LA","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Stella","Bradshaw","Fusce.fermentum@CurabiturmassaVestibulum.co.uk","NY","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Rowan","Roberson","risus.odio@Nullamnisl.com","NY","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Sybill","Reynolds","purus.sapien.gravida@tristiqueaceleifend.edu","NY","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Ruth","Cardenas","magna.tellus@Mauris.edu","Chicago","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Rhea","Robertson","rutrum.justo.Praesent@est.com","Chicago","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Sheila","James","viverra.Maecenas.iaculis@vestibulummassa.org","LA","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Haley","English","non@loremegetmollis.org","NY","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Sierra","Puckett","magna@dictum.net","LA","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Larissa","Bernard","et.commodo.at@porttitorvulputateposuere.net","LA","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Velma","Osborn","fringilla@nonduinec.ca","LA","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Patience","Woodard","metus.In.nec@dolorelit.edu","NY","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Carissa","Whitney","magna@nislQuisque.co.uk","NY","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Georgia","Vaughan","fames.ac.turpis@sedestNunc.edu","Chicago","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Olga","Morales","sollicitudin.orci@maurisa.net","Chicago","Mentor");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Yoko","Nixon","enim.diam.vel@asollicitudinorci.com","NY","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Chloe","Dixon","ipsum@acmieleifend.co.uk","NY","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Gloria","Bradley","mollis@eu.co.uk","LA","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Lysandra","Whitley","non.arcu.Vivamus@miac.com","NY","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Carla","Walker","non.lobortis.quis@auguescelerisque.edu","Chicago","Mentee");
+INSERT INTO `users` (`FirstName`,`LastName`,`Email`,`City`,`Level`) VALUES ("Teagan","Parks","Cras.interdum@nonummyut.com","LA","Mentee");
