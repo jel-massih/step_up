@@ -87,7 +87,6 @@ define(function(require, exports, module) {
             if(app.messageCollection.length) {
               app.messageCollection.reset();
             }
-            $('#messagesPanel').html("Please Sign in to view messages.");
           }
           Backbone.history.navigate('/', {trigger:true});
         },

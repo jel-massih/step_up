@@ -22,13 +22,14 @@ define(function(require, exports, module) {
     },
     afterRender: function() {
       if(this.collection && this.collection.length) {
-        $('#messagePanel').html("");
+        $('#mpane').html("");
       } else {
         console.log(app.router.user.isValid());
         if(app.router.user.isValid()) {
-          $('#messagePanel').html("You Have no new Messages!");
+          $('#mpane').html("You Have no new Messages!");
         } else {
-          $('#messagePanel').html("Please Sign in to view messages.");
+          $("#logoutbtn").remove();
+          $('#mpane').html("Please Sign in to view messages.");
         }
       }
     },
