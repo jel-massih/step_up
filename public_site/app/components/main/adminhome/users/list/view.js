@@ -7,7 +7,7 @@ define(function(require, exports, module) {
   var Layout = Backbone.Layout.extend({
     template: require("ldsh!./template"),
     tagName: "div",
-    className: "list-group",
+    el:"#adminPanel",
     serialize: function() {
       return {events: this.collection};
     },

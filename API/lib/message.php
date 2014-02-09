@@ -39,4 +39,29 @@
     }
     return false;
   }
+
+  function dbBroadcastMessage($sender_id, $title, $body, $sender_email, $sender_name) {
+    global $db_link;
+    $users = array();
+    if($q = $db_link->prepare("SELECT _id FROM users"))
+    {
+      $q->execute();
+      $q->bind_result($eid);
+
+      while($q->fetch()) {
+        array_push($users, $eid);
+      }
+    }
+    if ($q->errno) {
+      return false;
+    }
+
+    $q = $db_link->prepare("INSERT INTO user_msgs (`sender_id`, `reciever_id`, `title`, `body`, `sender_email`, `sender_name`) VALUES (?, ?, ?, ?, ?, ?)");
+    foreach ($users as $uid) {
+      $q->bind_param('ssssss', $sender_id, $uid, $title, $body, $sender_email, $sender_name);
+      $q->execute();
+    }
+
+    return true; 
+  }
 ?>

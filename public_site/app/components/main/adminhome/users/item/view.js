@@ -5,8 +5,7 @@ define(function(require, exports, module) {
 
   var Item = Backbone.Layout.extend({
     template: require("ldsh!./template"),
-    tagName: "a",
-    className: "list-group-item",
+    tagName: "tr",
     serialize: function() {
       return {model: this.model};
     },

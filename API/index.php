@@ -21,7 +21,7 @@
 	$app->post('/events/', authenticate(), administrate(), 'newEvent');
 	$app->get('/messages', authenticate(), 'getLoggedInUserMessages');
   $app->post('/messages', authenticate(), 'postMessage');
-	$app->post('/messages/broadcast', authenticate(), administrate(), 'postMessage');
+	$app->post('/messages/broadcast', authenticate(), administrate(), 'broadcastMessage');
 
 	$app->run();
 
@@ -180,6 +180,18 @@
 			echo('{"error":{"text":"Please Specify Title Or Body"}}');
 		}
 	}
+
+  function broadcastMessage() {
+    if(!empty($_POST['title']) || !empty($_POST['body'])) {
+      if(dbBroadcastMessage($_SESSION['user']['id'], $_POST['title'], $_POST['body'], $_POST['sender_email'], $_POST['sender_name'])) {
+        echo('{"success":{"text":"Sent Message Successfully"}}');
+      } else {
+        echo('{"error":{"text":"Unable to send message. Please try again later."}}');
+      }
+    } else {
+      echo('{"error":{"text":"Please Specify Title Or Body"}}');
+    }
+  }
 
 	function authenticate() {
 		return function() {
