@@ -62,7 +62,7 @@ The AMP-packages listed above all include Phpmyadmin. The following three steps 
    3. Press Go  
 
 #### Step 6: Setup StepUp
-Open `step_up/API/liv/db.setup.php` Add the database username and password from Step 5 to *db_link*. Save the file as ```step_up/API/db.php```
+Open `step_up/API/lib/db.setup.php` Add the database username and password from Step 5 to *db_link*. Save the file as ```step_up/API/lib/db.php```
 
 ```
 db_link 
