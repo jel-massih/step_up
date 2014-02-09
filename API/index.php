@@ -20,7 +20,8 @@
 	$app->put('/events/:id', authenticate(), administrate(), 'updateEvent');
 	$app->post('/events/', authenticate(), administrate(), 'newEvent');
 	$app->get('/messages', authenticate(), 'getLoggedInUserMessages');
-	$app->post('/messages', authenticate(), 'postMessage');
+  $app->post('/messages', authenticate(), 'postMessage');
+	$app->post('/messages/broadcast', authenticate(), administrate(), 'postMessage');
 
 	$app->run();
 

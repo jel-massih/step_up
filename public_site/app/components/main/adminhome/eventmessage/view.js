@@ -3,48 +3,40 @@ define(function(require, exports, module) {
 
   var app = require("app");
 
-  var EventDetail = Backbone.Layout.extend({
+  //var T = require("modules/GrowingInput");
+  var T3 = require("modules/select2");
+
+  var NewMessage = Backbone.Layout.extend({
     template: require("ldsh!./template"),
-    el:"#NewWrapper",
+    el:"#adminPanel",
     afterRender: function() {
-      console.log(this.collection);
-      $("#recieveSelect").select2();
-    },
-    serialize: function() {
-      return {users: this.collection};
+      $("#inputTitle").val(this.eventName + " Announcement");
     },
     events: {
       "click #sendBtn":"sendMessage"
     },
     sendMessage: function(e) {
       e.preventDefault(); 
-      var arr = $("#recieveSelect").val();
       var ttitle = $("#inputTitle").val();
       var tbody = $("#inputBody").val();
 
       if(tbody != "" || ttitle != "") {
-        if(arr) {
-          arr.map( function(reciever) {
-            var url ="../api/index.php/messages"
-            var mdata = {email: reciever, title: ttitle, body: tbody, "sender_email": app.router.user.get("email"), "sender_name": app.router.user.get("user_name")};
-            $.ajax({
-              url:url,
-              type:'POST',
-              dataType:"json",
-              data: mdata,
-              success:function(data) {
-                if(!data.error) {
-                  Backbone.history.navigate('/', {trigger:true});
-                }
-              }
-            });
-          });
-        }
-      } else {
-        console.log("Fill Out Message");
+        var url ="../api/index.php/messages/broadcast"
+        var mdata = {title: ttitle, body: tbody, "sender_email": app.router.user.get("email"), "sender_name": app.router.user.get("user_name")};
+        $.ajax({
+          url:url,
+          type:'POST',
+          dataType:"json",
+          data: mdata,
+          success:function(data) {
+            if(!data.error) {
+              Backbone.history.navigate('/admin/events', {trigger:true});
+            }
+          }
+        });
       }
     }
   });
 
-  module.exports = EventDetail;
+  module.exports = NewMessage;
 });

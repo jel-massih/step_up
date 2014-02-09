@@ -3,6 +3,8 @@ define(function(require, exports, module) {
 
   var app = require("app");
 
+  var EventMessage = require("../../eventmessage/view");
+
   var Item = Backbone.Layout.extend({
     template: require("ldsh!./template"),
     tagName: "div",
@@ -21,7 +23,7 @@ define(function(require, exports, module) {
       Backbone.history.navigate("events/" + this.model.get("id") + "/edit", {trigger: true});
     },
     sendEventMessage: function() {
-      
+      new EventMessage({eventName: this.model.get("event_name")}).render();
     }
   });
 
