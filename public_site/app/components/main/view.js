@@ -8,6 +8,7 @@ define(function(require, exports, module) {
   var Home = require("./home/view");
   var Login = require("./login/view");
   var Register = require("./register/view");
+  var EventDetail = require("./eventdetail/view");
 
   var Layout = Backbone.Layout.extend({
     el:"main",
@@ -66,8 +67,17 @@ define(function(require, exports, module) {
         new Register().render();
       }
     },
-    reset: function() {
-      this.homePage.reset();
+    goEventDetail: function(eid) {
+      if(this.currentPage != "eventdetail:" + eid) {
+        if(this.currentPage == null) {
+          app.router.on('eventsFetched', function() {
+            new EventDetail({model: app.eventsCollection.get(eid)}).render();
+          })
+        } else {
+          new EventDetail({model: app.eventsCollection.get(eid)}).render();
+        }
+        this.currentPage = "eventdetail:" + eid;
+      }
     }
   });
 

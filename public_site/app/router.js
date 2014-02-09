@@ -9,6 +9,9 @@ define(function(require, exports, module) {
 
   var UserModel = require("components/user/model");
 
+  var Events = require("components/main/home/events/index");
+  var Messages = require("components/main/home/messages/index");
+
   // Defining the application router.
   module.exports = Backbone.Router.extend({
     initialize: function() {
@@ -29,12 +32,24 @@ define(function(require, exports, module) {
           }
         }
       });
+
+      if(!app.eventsCollection) {
+        app.eventsCollection = new Events.Collection();
+      }
+      app.eventsCollection.fetch({success: function() {
+        that.trigger("eventsFetched");
+      }});
+      if(!app.messageCollection) {
+        app.messageCollection = new Messages.Collection();
+      }
+      app.messageCollection.fetch();
     },
     routes: {
       "": "index",
       "login":"login",
       "register":"register",
-      "logout":"logout"
+      "logout":"logout",
+      "events/:id": "viewEventInfo"
     },
 
     index: function() {
@@ -69,6 +84,9 @@ define(function(require, exports, module) {
           Backbone.history.navigate('/', {trigger:true});
         }
       });
+    },
+    viewEventInfo: function(eid) {
+      this.MainView.goEventDetail(eid);
     }
   });
 });
