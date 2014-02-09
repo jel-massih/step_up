@@ -3,7 +3,6 @@ define(function(require, exports, module) {
 
   var app = require("app");
   var Item = require("../item/view");
-  var Event = require("../model");
 
   var Layout = Backbone.Layout.extend({
     template: require("ldsh!./template"),
@@ -13,9 +12,9 @@ define(function(require, exports, module) {
       return {events: this.collection};
     },
     beforeRender: function() {
-     this.collection.each(function(my_event) {
+     this.collection.each(function(message) {
         this.insertView("#listInsertPoint", new Item({
-          model:my_event
+          model:message
         }));
       }, this);
     },

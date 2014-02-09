@@ -3,7 +3,6 @@ define(function(require, exports, module) {
 
   var app = require("app");
   var Item = require("../item/view");
-  var Event = require("../model");
 
   var Layout = Backbone.Layout.extend({
     template: require("ldsh!./template"),
