@@ -4,6 +4,7 @@ define(function(require, exports, module) {
   var app = require("app");
 
   //var T = require("modules/GrowingInput");
+  var ManageEvents = require("../events/list/view");
   var T3 = require("modules/select2");
 
   var NewMessage = Backbone.Layout.extend({
@@ -23,6 +24,7 @@ define(function(require, exports, module) {
       if(tbody != "" || ttitle != "") {
         var url ="../api/index.php/messages/broadcast"
         var mdata = {title: ttitle, body: tbody, "sender_email": app.router.user.get("email"), "sender_name": app.router.user.get("user_name")};
+        var that = this;
         $.ajax({
           url:url,
           type:'POST',
@@ -30,7 +32,7 @@ define(function(require, exports, module) {
           data: mdata,
           success:function(data) {
             if(!data.error) {
-              Backbone.history.navigate('/admin/events', {trigger:true});
+              Backbone.history.navigate('admin', {trigger:true});
             }
           }
         });
