@@ -6,7 +6,7 @@ define(function(require, exports, module) {
 
   var Login = require("components/user/login/view");
   var Register = require("components/user/register/view");
-  var Home = require("components/home/view");
+  var Main = require("components/main/view");
   var app = require("app");
 
   var UserModel = require("components/user/model");
@@ -14,11 +14,11 @@ define(function(require, exports, module) {
   // Defining the application router.
   module.exports = Backbone.Router.extend({
     initialize: function() {
-      this.HomeView = new Home();
+      this.MainView = new Main();
       this.user = new UserModel({});
       var that = this;
       this.user.on("change", function() {
-        that.HomeView.userUpdate();
+        that.MainView.userUpdate();
       });
       $.ajax({
         url:"../api/index.php/user",
@@ -39,7 +39,8 @@ define(function(require, exports, module) {
     },
 
     index: function() {
-      new Home().render();
+      this.MainView.render();
+      this.MainView.goHome();
     },
     login: function() {
       new Login().render();

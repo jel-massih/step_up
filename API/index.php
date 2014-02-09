@@ -4,6 +4,7 @@
 	\Slim\Slim::registerAutoloader();
 	require 'lib/login.php';
 	require 'lib/register.php';
+	require 'lib/event.php';
 
 	$app = new \Slim\Slim();
 

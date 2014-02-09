@@ -5,9 +5,12 @@ define(function(require, exports, module) {
   var LoggedOutView = require("./navbar/loggedout/view");
   var LoggedInView = require("./navbar/loggedin/view");
 
+  var Home = require("./home/view")
+
   var Layout = Backbone.Layout.extend({
     el:"main",
     template: require("ldsh!./template"),
+    currentPage: null,
     initialize: function() {
       this.currentNavState = null;
       if(app.router && app.router.user.isValid()) {
@@ -24,6 +27,7 @@ define(function(require, exports, module) {
         this.currentNavState = "loggedout";
       }
       this.setView("#headercontent", view);
+      //this.setView("#NewWrapper", new Events.Views.List({collection: this.eventsCollection}));
       view.render();
     },
     userUpdate: function() {
@@ -41,6 +45,11 @@ define(function(require, exports, module) {
           this.setView("#headercontent", view);
           this.currentNavState = "loggedout";
         }
+      }
+    },
+    goHome: function() {
+      if(this.currentPage != "home") {
+        new Home().render();
       }
     }
   });
