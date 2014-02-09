@@ -53,7 +53,8 @@ define(function(require, exports, module) {
       "register":"register",
       "logout":"logout",
       "events/:id": "viewEventInfo",
-      "messages/:id": "viewMessage"
+      "messages/:id": "viewMessage",
+      "message/new": "newMessage"
     },
 
     index: function() {
@@ -94,6 +95,9 @@ define(function(require, exports, module) {
     },
     viewMessage: function(mid) {
       this.MainView.goViewMessage(mid);
+    },
+    newMessage: function() {
+      this.MainView.goNewMessage();
     }
   });
 });
