@@ -28,7 +28,7 @@ define(function(require, exports, module) {
         if(app.router.user.isValid()) {
           $('#mpane').html("You Have no new Messages!");
         } else {
-          $("#logoutbtn").remove();
+          $("#newMessageBtn").remove();
           $('#mpane').html("Please Sign in to view messages.");
         }
       }
@@ -37,6 +37,12 @@ define(function(require, exports, module) {
       if(this.collection) {
         this.listenTo(this.collection, "reset sync request", this.render);
       }
+    },
+    events: {
+      "click #newMessageBtn": "newMessage"
+    },
+    newMessage: function() {
+      Backbone.history.navigate("message/new", {trigger:true});
     }
   });
 
