@@ -18,6 +18,7 @@
 	$app->get('/events', 'getEvents');
 	$app->get('/events/:location', 'getEventsByLocation');
 	$app->get('/messages', authenticate(), 'getLoggedInUserMessages');
+	$app->post('/messages', authenticate(), 'postMessage');
 
 	$app->run();
 
@@ -143,5 +144,21 @@
 				return true;
 			}
 		};
+	}
+
+	function postMessage() {
+		if(!empty($_POST['title']) || !empty($_POST['body'])) {
+			if(!empty($_POST['email'])) {
+				if(dbSendMessage($_POST['email'], $_SESSION['user']['id'], $_POST['title'], $_POST['body'])) {
+					echo('{"success":{"text":"Sent Message Successfully"}}');
+				} else {
+					echo('{"error":{"text":"Unable to send message. Please try again later."}}');
+				}
+			} else {
+				echo('{"error":{"text":"Unable to send message. Please try again later."}}');
+			}
+		} else {
+			echo('{"error":{"text":"Please Specify Title Or Body"}}');
+		}
 	}
 ?>

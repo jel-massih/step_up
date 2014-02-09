@@ -19,4 +19,24 @@
     }
     return json_encode($result);
   }
+
+  function dbSendMessage($recieverEmail, $sender_id, $title, $body) {
+    global $db_link;
+
+    $reciever_id = getIDFromEmail($recieverEmail);
+
+    if($reciever_id != null) {
+      if($q = $db_link->prepare("INSERT INTO user_msgs (`sender_id`, `reciever_id`, `title`, `body`) VALUES (?, ?, ?, ?)"))
+      {
+          $q->bind_param('ssss', $sender_id, $reciever_id, $title, $body);
+          if($q->execute())
+          {
+              $q->close();
+              return true;
+          }
+          $q->close();
+      }
+    }
+    return false;
+  }
 ?>

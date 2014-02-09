@@ -20,19 +20,29 @@ define(function(require, exports, module) {
       "click #sendBtn":"sendMessage"
     },
     sendMessage: function(e) {
-      e.preventDefault();
+      e.preventDefault(); 
       var arr = $("#recieveSelect").val();
-      if(arr) {
-        arr.map( function(reciever) {
-          var url =""
-          $.ajax({
-            url:url,
-            type:'POST',
-            dataType:"json",
-            success:function(data) {
-            }
+      var ttitle = $("#inputTitle").val();
+      var tbody = $("#inputBody").val();
+
+      if(tbody != "" || ttitle != "") {
+        if(arr) {
+          arr.map( function(reciever) {
+            var url ="../api/index.php/messages"
+            var mdata = {email: reciever, title: ttitle, body: tbody};
+            $.ajax({
+              url:url,
+              type:'POST',
+              dataType:"json",
+              data: mdata,
+              success:function(data) {
+                console.log(data);
+              }
+            });
           });
-        });
+        }
+      } else {
+        console.log("Fill Out Message");
       }
     }
   });
