@@ -3,6 +3,7 @@
 
 body{
 	background-color: rgb(240,240,240);
+   color: #e05a01;
 }
 
 h2, h3, h4  {
@@ -31,7 +32,9 @@ p, li {
   border-color:  #e05a01;
   color: #e05a01;
 }
+br{
 
+}
 
 nav {
   width:100%;
