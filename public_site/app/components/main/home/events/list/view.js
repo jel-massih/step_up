@@ -6,12 +6,14 @@ define(function(require, exports, module) {
 
   var Layout = Backbone.Layout.extend({
     template: require("ldsh!./template"),
+    tagName: "div",
+    className: "list-group events",
     serialize: function() {
       return {events: this.collection};
     },
     beforeRender: function() {
      this.collection.each(function(my_event) {
-        this.insertView("#list-entry-point", new Item({
+        this.insertView("#listInsertPoint", new Item({
           model:my_event
         }));
       }, this);

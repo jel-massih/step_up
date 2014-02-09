@@ -12,7 +12,7 @@ define(function(require, exports, module) {
       this.eventsCollection.fetch();
     },
     afterRender: function() {
-      //this.setView("#NewWrapper", new Events.Views.List({collection: this.eventsCollection}));
+      this.setView("#eventsPanel", new Events.Views.List({collection: this.eventsCollection}));
     }
   });
 
