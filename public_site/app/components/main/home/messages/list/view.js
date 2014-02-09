@@ -13,7 +13,7 @@ define(function(require, exports, module) {
     },
     beforeRender: function() {
       if(this.collection) {
-        this.collection.each(function(message) {
+        _.each(this.collection.last(this.collection.length).reverse(), function(message) {
           this.insertView("#messageListInsertPoint", new Item({
             model:message
           }));
