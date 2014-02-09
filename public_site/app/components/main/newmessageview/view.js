@@ -10,8 +10,12 @@ define(function(require, exports, module) {
     template: require("ldsh!./template"),
     el:"#NewWrapper",
     afterRender: function() {
-      $("#e9").select2();
-    }
+      console.log(this.collection);
+      $("#recieveSelect").select2();
+    },
+    serialize: function() {
+      return {users: this.collection};
+    },
   });
 
   module.exports = EventDetail;

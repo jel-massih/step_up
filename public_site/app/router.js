@@ -49,8 +49,8 @@ define(function(require, exports, module) {
       if(!app.usersCollection) {
         app.usersCollection = new UsersCollection();
       }
-      app.messageCollection.fetch({success: function() {
-        console.log("Users fetched");
+      app.usersCollection.fetch({success: function() {
+        that.trigger("usersFetched");
       }});
     },
     routes: {

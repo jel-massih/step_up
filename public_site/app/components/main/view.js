@@ -95,7 +95,13 @@ define(function(require, exports, module) {
     },
     goNewMessage: function() {
       if(this.currentPage != "newMessage") {
-        new NewMessageView().render();
+        if(this.currentPage == null) {
+          app.router.on('usersFetched', function() {
+            new NewMessageView({collection: app.usersCollection}).render();
+          })
+        } else {
+          new NewMessageView({collection: app.usersCollection}).render();
+        }
         this.currentPage = "newMessage";
       }
     }
