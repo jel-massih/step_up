@@ -3,23 +3,16 @@ define(function(require, exports, module) {
 
   var app = require("app");
 
-  var Item = Backbone.Layout.extend({
+  var ViewMessage = Backbone.Layout.extend({
     template: require("ldsh!./template"),
-    tagName: "a",
-    className: "list-group-item",
+    el:"#NewWrapper",
     serialize: function() {
       return {model: this.model};
     },
     initialize: function() {
       this.listenTo(this.model, "change", this.render);
-    },
-    events: {
-      click: "viewMessage"
-    },
-    viewMessage: function() {
-      Backbone.history.navigate("messages/" + this.model.get("id"), {trigger: true});
     }
   });
 
-  module.exports = Item;
+  module.exports = ViewMessage;
 });

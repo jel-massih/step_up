@@ -9,6 +9,7 @@ define(function(require, exports, module) {
   var Login = require("./login/view");
   var Register = require("./register/view");
   var EventDetail = require("./eventdetail/view");
+  var MessageView = require("./messageview/view")
 
   var Layout = Backbone.Layout.extend({
     el:"main",
@@ -77,6 +78,19 @@ define(function(require, exports, module) {
           new EventDetail({model: app.eventsCollection.get(eid)}).render();
         }
         this.currentPage = "eventdetail:" + eid;
+      }
+    },
+    goViewMessage: function(mid) {
+      console.log(this.currentPage);
+      if(this.currentPage != "viewMessage:" + mid) {
+        if(this.currentPage == null) {
+          app.router.on('messagesFetched', function() {
+            new MessageView({model: app.messageCollection.get(mid)}).render();
+          })
+        } else {
+          new MessageView({model: app.messageCollection.get(mid)}).render();
+        }
+        this.currentPage = "viewMessage:" + mid;
       }
     }
   });

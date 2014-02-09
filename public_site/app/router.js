@@ -42,14 +42,18 @@ define(function(require, exports, module) {
       if(!app.messageCollection) {
         app.messageCollection = new Messages.Collection();
       }
-      app.messageCollection.fetch();
+      app.messageCollection.fetch({success: function() {
+        that.trigger("messagesFetched");
+        console.log("fetched");
+      }});
     },
     routes: {
       "": "index",
       "login":"login",
       "register":"register",
       "logout":"logout",
-      "events/:id": "viewEventInfo"
+      "events/:id": "viewEventInfo",
+      "messages/:id": "viewMessage"
     },
 
     index: function() {
@@ -87,6 +91,9 @@ define(function(require, exports, module) {
     },
     viewEventInfo: function(eid) {
       this.MainView.goEventDetail(eid);
+    },
+    viewMessage: function(mid) {
+      this.MainView.goViewMessage(mid);
     }
   });
 });
