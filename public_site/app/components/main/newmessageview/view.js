@@ -29,7 +29,7 @@ define(function(require, exports, module) {
         if(arr) {
           arr.map( function(reciever) {
             var url ="../api/index.php/messages"
-            var mdata = {email: reciever, title: ttitle, body: tbody};
+            var mdata = {email: reciever, title: ttitle, body: tbody, "sender_email": app.router.user.get("email"), "sender_name": app.router.user.get("user_name")};
             $.ajax({
               url:url,
               type:'POST',

@@ -58,6 +58,7 @@ define(function(require, exports, module) {
       "login":"login",
       "register":"register",
       "logout":"logout",
+      "events/new": "newEvent",
       "events/:id": "viewEventInfo",
       "events/:id/edit": "editEventInfo",
       "messages/:id": "viewMessage",
@@ -104,6 +105,9 @@ define(function(require, exports, module) {
     },
     viewEventInfo: function(eid) {
       this.MainView.goEventDetail(eid);
+    },
+    newEvent: function() {
+      this.MainView.goNewEvent();
     },
     viewMessage: function(mid) {
       this.MainView.goViewMessage(mid);

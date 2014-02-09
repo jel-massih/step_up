@@ -18,6 +18,7 @@
 	$app->get('/events', 'getEvents');
 	$app->get('/events/loc/:location', 'getEventsByLocation');
 	$app->put('/events/:id', authenticate(), administrate(), 'updateEvent');
+	$app->post('/events/', authenticate(), administrate(), 'newEvent');
 	$app->get('/messages', authenticate(), 'getLoggedInUserMessages');
 	$app->post('/messages', authenticate(), 'postMessage');
 
@@ -137,6 +138,19 @@
     }
 	}
 
+	function newEvent() {
+		$_POST = json_decode(file_get_contents('php://input'), true);
+    if(empty($_POST['event_name'])) {
+      echo('{"error":{"text":"Please Fill in a Name"}}');
+    } else {
+      if(dbAddEvent($_POST['event_name'], $_POST['event_desc'], $_POST['event_loc'], $_POST['event_start_date'], $_POST['event_start_time'])) {
+        echo('{"success":{"text":"Successfully Created new Event!"}}');
+      } else {
+        echo('{"error":{"text":"Failed to add a new Event"}}');
+      }
+    }
+	}
+
 	function getLoggedInUserMessages() {
 		if($_SESSION['user'] != null) {
 			$results = dbGetMessages($_SESSION['user']['id']);
@@ -153,7 +167,7 @@
 	function postMessage() {
 		if(!empty($_POST['title']) || !empty($_POST['body'])) {
 			if(!empty($_POST['email'])) {
-				if(dbSendMessage($_POST['email'], $_SESSION['user']['id'], $_POST['title'], $_POST['body'])) {
+				if(dbSendMessage($_POST['email'], $_SESSION['user']['id'], $_POST['title'], $_POST['body'], $_POST['sender_email'], $_POST['sender_name'])) {
 					echo('{"success":{"text":"Sent Message Successfully"}}');
 				} else {
 					echo('{"error":{"text":"Unable to send message. Please try again later."}}');

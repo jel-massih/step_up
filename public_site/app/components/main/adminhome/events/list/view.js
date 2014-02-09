@@ -21,6 +21,12 @@ define(function(require, exports, module) {
     },
     initialize: function() {
       this.listenTo(this.collection, "reset sync request", this.render);
+    },
+    events: {
+      "click #addEvent": "addNewEvent"
+    },
+    addNewEvent: function() {
+      Backbone.history.navigate("events/new", {trigger: true});
     }
   });
 

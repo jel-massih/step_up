@@ -72,10 +72,6 @@ define(function(require, exports, module) {
       }
     },
     goEventEdit: function(eid) {
-      /*if(app.router.user && app.router.user.get("access_level") == "0") {
-        Backbone.history.navigate('/', {trigger: true});
-        return;
-      }*/
       if(this.currentPage != "eventdetail:" + eid + "/edit") {
         if(this.currentPage == null) {
           app.router.on('eventsFetched', function() {
@@ -99,6 +95,12 @@ define(function(require, exports, module) {
           new EventDetail({model: app.eventsCollection.get(eid)}).render();
         }
         this.currentPage = "eventdetail:" + eid;
+      }
+    },
+    goNewEvent: function() {
+      if(this.currentPage != "newEvent") {
+        new EventEdit({}).render();
+        this.currentPage = "newEvent";
       }
     },
     goViewMessage: function(mid) {

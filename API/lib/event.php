@@ -57,4 +57,19 @@
 	  }
 	  return false;
 	}
+
+	function dbAddEvent($event_name, $event_desc, $location, $start_date, $start_time) {
+  	global $db_link;
+	  if($q = $db_link->prepare("INSERT INTO events (`name`, `desc`, `location`, `start_date`, `start_time`) VALUES (?, ?, ?, ?, ?)"))
+	  {
+	      $q->bind_param('sssss', $event_name, $event_desc, $location, $start_date, $start_time);
+	      if($q->execute())
+	      {
+	          $q->close();
+	          return true;
+	      }
+	      $q->close();
+	  }
+	  return false;
+	}
 ?>

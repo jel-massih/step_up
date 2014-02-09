@@ -52,6 +52,8 @@ function dbRegister($email, $password, $salt, $name, $membertype, $loc) {
     }
 
     if(addNewUser($email, $password, $salt, $name, $membertype, $loc)) {
+        dbSendMessage($email, 1, "Welcome to Step Up Network!", "At this site you are able to get the latest news about upcoming events! You can also chat with fellow mentors and mentees \
+            \n\nWe will also be sending out blast messages on occasion for event updates, so be sure to check the site occasionally!", "admin@suwn.com", "Turtle-Saurus");
         return 0;
     } else {
         return 5;
