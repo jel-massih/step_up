@@ -1,5 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Brawler);
 @import url(http://fonts.googleapis.com/css?family=Raleway);
+@import url(http://fonts.googleapis.com/css?family=Duru+Sans);
 
 body{
 	background-color: rgb(240,240,240);
@@ -9,6 +10,13 @@ body{
 h2, h3, h4  {
     font-family: 'Raleway', cursive;
     color: #e05a01; }
+
+h5 {
+  font-family: 'Duru Sans', cursive;
+
+  font-variant:small-caps;
+     }
+
 
 p, li {   
     font-family: 'Brawler',,  sans-serif;
@@ -76,5 +84,22 @@ nav {
 
 .container {
 width: 750px;
+}
+
+.panel-default>.panel-heading {
+color: #e05a01;
+background-color: #f5d8b2;
+border-color: #e05a01;
+}
+a.list-group-item:hover,a.list-group-item:focus, a.list-group-item:active, a.list-group-item.active {
+  background-color: #f5d8b2;
+  border-color:  #e05a01;
+  border-bottom: #e05a01;
+ }
+
+a.list-group-item {
+color: #000;
+ font-family: 'Brawler', cursive;
+
 }
 
