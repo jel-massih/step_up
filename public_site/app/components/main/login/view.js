@@ -9,7 +9,8 @@ define(function(require, exports, module) {
 		initialize: function() {
 		},
 		events: {
-			"click #loginButton": "login"
+			"click #loginButton": "login",
+      "click #registerButton": "register"
 		},
 		render:function () {
 			$(this.el).html(this.template());
@@ -52,8 +53,12 @@ define(function(require, exports, module) {
 					}
 				}
 			});
-		}
-	});
+		},
+    register: function(e) {
+      e.preventDefault();
+      Backbone.history.navigate("register", {trigger: true});
+    }
+ 	});
 
 	return LoginView;
 });

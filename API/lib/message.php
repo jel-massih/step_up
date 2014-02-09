@@ -44,11 +44,12 @@
     return false;
   }
 
-  function dbBroadcastMessage($sender_id, $title, $body, $sender_email, $sender_name) {
+  function dbBroadcastMessage($sender_id, $title, $body, $sender_email, $sender_name, $location) {
     global $db_link;
     $users = array();
-    if($q = $db_link->prepare("SELECT _id, phone_number, email FROM users"))
+    if($q = $db_link->prepare("SELECT _id, phone_number, email FROM users WHERE location = ?"))
     {
+      $q->bind_param('s', $location);
       $q->execute();
       $q->bind_result($eid, $phone_num, $email);
 

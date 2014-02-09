@@ -23,7 +23,10 @@ define(function(require, exports, module) {
 
       if(tbody != "" || ttitle != "") {
         var url ="../api/index.php/messages/broadcast"
-        var mdata = {title: ttitle, body: tbody, "sender_email": app.router.user.get("email"), "sender_name": app.router.user.get("user_name")};
+        if(!this.location) {
+          this.location = '';
+        }
+        var mdata = {title: ttitle, body: tbody, "sender_email": app.router.user.get("email"), "sender_name": app.router.user.get("user_name"), "location":this.location};
         var that = this;
         $.ajax({
           url:url,

@@ -23,7 +23,7 @@ define(function(require, exports, module) {
       Backbone.history.navigate("events/" + this.model.get("id") + "/edit", {trigger: true});
     },
     sendEventMessage: function() {
-      new EventMessage({eventName: this.model.get("event_name")}).render();
+      new EventMessage({eventName: this.model.get("event_name"), location: this.model.get("event_loc")}).render();
     }
   });
 

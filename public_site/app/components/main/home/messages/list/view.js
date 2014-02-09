@@ -24,7 +24,6 @@ define(function(require, exports, module) {
       if(this.collection && this.collection.length) {
         $('#mpane').html("");
       } else {
-        console.log(app.router.user.isValid());
         if(app.router.user.isValid()) {
           $('#mpane').html("You Have no new Messages!");
         } else {

@@ -28,11 +28,15 @@ define(function(require, exports, module) {
       var time = $('#timeInput').val();
       var loc = $('#eventcity').val();
 
+      if(!loc) {
+        $('.alert-error').text("You Need A Location!").show();
+      }
+
       var obj = {"event_name":name,"event_desc":desc,"event_loc":loc,"event_start_date":date,"event_start_time":time};
 
       if(!this.model) {
-        var PassModel = new Password(obj);
-        this.model = PassModel;
+        var EventModel = new Event(obj);
+        this.model = EventModel;
       } else {
         this.model.set(obj);
       }
@@ -48,8 +52,7 @@ define(function(require, exports, module) {
             if(response.error) {
               $('.alert-error').text(response.error.text).show();
             } else {
-              console.log(app);
-              app.eventsCollection  .fetch();
+              app.eventsCollection.fetch();
               Backbone.history.navigate("/", {trigger:true});
             }
           }

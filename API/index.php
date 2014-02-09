@@ -207,7 +207,7 @@ error_reporting(-1);
 
   function broadcastMessage() {
     if(!empty($_POST['title']) || !empty($_POST['body'])) {
-      if(dbBroadcastMessage($_SESSION['user']['id'], $_POST['title'], $_POST['body'], $_POST['sender_email'], $_POST['sender_name'])) {
+      if(dbBroadcastMessage($_SESSION['user']['id'], $_POST['title'], $_POST['body'], $_POST['sender_email'], $_POST['sender_name'], $_POST['location'])) {
         echo('{"success":{"text":"Sent Message Successfully"}}');
       } else {
         echo('{"error":{"text":"Unable to send message. Please try again later."}}');
