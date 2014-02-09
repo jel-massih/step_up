@@ -11,7 +11,7 @@ define(function(require, exports, module) {
       "click #updateButton": "update"
     },
     serialize: function() {
-      return {model: this.user};
+      return {model: this.model};
     },
     update:function(event) {
       event.preventDefault();
