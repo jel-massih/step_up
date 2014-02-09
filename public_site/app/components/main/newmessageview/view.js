@@ -36,7 +36,9 @@ define(function(require, exports, module) {
               dataType:"json",
               data: mdata,
               success:function(data) {
-                console.log(data);
+                if(!data.error) {
+                  Backbone.history.navigate('/', {trigger:true});
+                }
               }
             });
           });

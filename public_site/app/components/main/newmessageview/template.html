@@ -12,7 +12,7 @@
                         <div class="form-group">
                             <select multiple="" name="recieveSelect" id="recieveSelect" style="width:100%" class="populate select2-offscreen" tabindex="-1">
                                 <% users.each(function(user) { %>
-                                <option value="<%= user.get('email') %>"><%= user.get('email') %></option>
+                                <option value="<%= user.get('email') %>"><%= user.get('user_name') %> (<%= user.get('email') %>)</option>
                                 <% }); %>
                             </select>
                         </div>
