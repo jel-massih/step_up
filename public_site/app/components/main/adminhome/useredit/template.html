@@ -1,0 +1,68 @@
+<span style= "display:inline block ">
+    <img class="logo" src="app/img/SULogoTop.gif"  alt="">
+    <h3> Update User Form </h3>
+</span>  
+<div class="alert-error" style="display:none; color:red"></div>
+<div id="wrapper" style="width:700px;margin:0 auto">
+    
+    <form class="form-horizontal">
+    <fieldset>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="textinput">Name</label>  
+      <div class="col-md-4">
+      <input id="nameInput" name="textinput" placeholder="Enter Your Real Name" value="<%= model.get("user_name") %>" class="form-control input-md" type="text">
+        
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="textinput2">Email</label>  
+      <div class="col-md-4">
+      <input id="emailInput" value="<%= model.get("email") %>" name="textinput2" placeholder="your@email.com" class="form-control input-md" type="text">
+        
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="selectType2">Membership Type</label>
+      <div class="col-md-4">
+        <select id="membershipType" value="<%= model.get("membership_type") %>" name="selectType2" class="form-control">
+            <option value="0">Select One</option>
+            <option value="mentor">Mentor</option>
+            <option value="mentee">Mentee</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="selectcity">Choose City</label>
+      <div class="col-md-4">
+        <select id="selectcity" value="<%= model.get("location") %>" name="selectcity" class="form-control">
+           <option value="0">Select One</option>
+          <option value="chicago">Chicago</option>
+          <option value="new york">New York</option>
+          <option value="los angeles">Los Angeles</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="selectcity">Access Level</label>
+      <div class="col-md-4">
+        <select value="<%= model.get("access_level") %>" id="accessLevelSelect" name="selectcity" class="form-control">
+           <option value="0">User</option>
+          <option value="1">Admin</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="button1id"> </label>
+      <div class="col-md-8">
+        <button id="updateButton" name="button1id" class="btn btn-success">Update User</button>
+        <!-- <button id="button2id" name="button2id" class="btn btn-danger">Reset Form </button> -->
+      </div>
+    </div>
+</div>  
+</div>
