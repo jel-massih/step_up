@@ -1,4 +1,10 @@
-<div style="cursor:pointer" >
-  <h5><%= model.get("event_name") %> - <%= model.get("event_start_date") %> - <%= model.get("event_start_time") %></h5>
-  <p><%= model.get("event_desc") %> </p>
+<div style="display:inline">
+  <div style="display:inline;width:300px; margin:0">
+  <h5 style="width:400px;display:inline-block"><%= model.get("event_name") %> - <%= model.get("event_start_date") %> - <%= model.get("event_start_time") %></h5>
+  <p style="width:400px;display:inline-block"><%= model.get("event_desc") %> </p>
+  </div>
+  <div style="display:inline;width:300px;float:right; margin-top:-25px">
+  <button id="editEvent" style="margin-left:15px" name="button1id" class="btn btn-success">Edit Event</button>
+  <button id="sendEventMessage" style="margin-left:15px" name="button1id" class="btn btn-success">Send Event Message</button>
+</div>
 </div>

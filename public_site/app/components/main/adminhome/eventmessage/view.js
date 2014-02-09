@@ -3,10 +3,7 @@ define(function(require, exports, module) {
 
   var app = require("app");
 
-  //var T = require("modules/GrowingInput");
-  var T3 = require("modules/select2");
-
-  var NewMessage = Backbone.Layout.extend({
+  var EventDetail = Backbone.Layout.extend({
     template: require("ldsh!./template"),
     el:"#NewWrapper",
     afterRender: function() {
@@ -49,5 +46,5 @@ define(function(require, exports, module) {
     }
   });
 
-  module.exports = NewMessage;
+  module.exports = EventDetail;
 });

@@ -5,7 +5,7 @@ define(function(require, exports, module) {
 
   var Item = Backbone.Layout.extend({
     template: require("ldsh!./template"),
-    tagName: "a",
+    tagName: "div",
     className: "list-group-item",
     serialize: function() {
       return {model: this.model};
@@ -14,10 +14,14 @@ define(function(require, exports, module) {
       this.listenTo(this.model, "change", this.render);
     },
     events: {
-      click: "editEvent"
+      "click #editEvent": "editEvent",
+      "click #sendEventMessage": "sendEventMessage"
     },
     editEvent: function() {
       Backbone.history.navigate("events/" + this.model.get("id") + "/edit", {trigger: true});
+    },
+    sendEventMessage: function() {
+      
     }
   });
 
