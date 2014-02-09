@@ -1,10 +1,11 @@
 @import url(http://fonts.googleapis.com/css?family=Brawler);
 @import url(http://fonts.googleapis.com/css?family=Raleway);
 @import url(http://fonts.googleapis.com/css?family=Duru+Sans);
+@import url(http://fonts.googleapis.com/css?family=ABeeZee);
 
 body{
 	background-color: rgb(240,240,240);
-   color: #e05a01;
+   color:  #e05a01   ;
 }
 
 h2, h3, h4  {
@@ -13,14 +14,24 @@ h2, h3, h4  {
 
 h5 {
   font-family: 'Duru Sans', cursive;
-
   font-variant:small-caps;
      }
 
-
 p, li {   
-    font-family: 'Brawler',,  sans-serif;
+    font-family: 'Brawler', sans-serif;
+    color: #000; 
         }
+
+.newBrand{
+    font-family: 'ABeeZee', sans-serif;
+    color: white;
+    font-size: 35px;
+    background-color: #e05a01;
+    padding: 4px;
+    padding-left: 8px;
+
+}
+
 .vertical-offset-100{
     padding-top:100px;
 }
