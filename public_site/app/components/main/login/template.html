@@ -1,26 +1,24 @@
-<div id="stylized" class="myform">
-    <form id="form" action="index.html" method="post" name="form">
-            <span style="display: inline;">
-                <img style="width:50px" class="logo" src="app/img/SULogoTop.gif"  alt="">
-                <span  style="display:width:100px">Igniting Women & Girls to Fulfill Their Potential</span>
-            </span>
-            <p>
-            <br/> 
-            To Login, enter Username and password: 
-            </p>
-            
-            <div class="alert-error" style="display:none; color:red"></div>
-        
-        <label> Email </label>
-            <input id="inputEmail" type="text" name="email" placeholder="Enter a valid email"></input>
-            <br/>
-        
-        <label> Password </label>
-            <input id="inputPassword" type="password" name="password" placeholder="Password: Min. 8 chars"></input>
-            <br/>
-        
-        <span style="display: inline;">
-        <button type="submit" id="loginButton"> Enter  </button>
-        <div class="spacer"></div></span>
+<img class="logo" src="app/img/SULogoTop.gif"  alt="">
+<div style="width:400px;margin:0 auto">
+    <form role="form">
+        <fieldset>
+            <h2>Please Sign In</h2>
+            <hr>
+            <div class="form-group">
+                <input type="email" name="email" id="inputEmail" class="form-control input-lg" placeholder="Email Address">
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" id="inputPassword" class="form-control input-lg" placeholder="Password">
+            </div>
+            <hr >
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <input id="loginButton" type="submit" class="btn btn-lg btn-success btn-block" value="Sign In">
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <a href="" class="btn btn-lg btn-primary btn-block">Register</a>
+                </div>
+            </div>
+        </fieldset>
     </form>
 </div>

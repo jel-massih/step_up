@@ -15,14 +15,6 @@ define(function(require, exports, module) {
       if(!attributes.email) {
         return 'You must enter valid email';
       }
-
-      if(!attributes.password) {
-        return 'You must enter a Password';
-      }
-
-      if(!attributes.salt) {
-        return 'Something Went Horribly Wrong! Please Try Again. (Salt Error)';
-      }
     },
     urlRoot: '../API/index.php/users'
   })

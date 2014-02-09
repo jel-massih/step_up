@@ -8,6 +8,7 @@ define(function(require, exports, module) {
   var app = require("app");
 
   var UserModel = require("components/user/model");
+  var UsersCollection = require("components/user/collection");
 
   var Events = require("components/main/home/events/index");
   var Messages = require("components/main/home/messages/index");
@@ -44,7 +45,12 @@ define(function(require, exports, module) {
       }
       app.messageCollection.fetch({success: function() {
         that.trigger("messagesFetched");
-        console.log("fetched");
+      }});
+      if(!app.usersCollection) {
+        app.usersCollection = new UsersCollection();
+      }
+      app.usersCollection.fetch({success: function() {
+        that.trigger("usersFetched");
       }});
     },
     routes: {
