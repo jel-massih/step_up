@@ -9,6 +9,7 @@ define(function(require, exports, module) {
   var Login = require("./login/view");
   var Register = require("./register/view");
   var EventDetail = require("./eventdetail/view");
+  var EventEdit = require("./eventedit/view");
   var MessageView = require("./messageview/view");
   var NewMessageView = require("./newmessageview/view");
   var AdminHome = require("./adminhome/view")
@@ -70,10 +71,28 @@ define(function(require, exports, module) {
         new Register().render();
       }
     },
+    goEventEdit: function(eid) {
+      /*if(app.router.user && app.router.user.get("access_level") == "0") {
+        Backbone.history.navigate('/', {trigger: true});
+        return;
+      }*/
+      if(this.currentPage != "eventdetail:" + eid + "/edit") {
+        if(this.currentPage == null) {
+          app.router.on('eventsFetched', function() {
+            console.log(app.eventsCollection.get(eid));
+            new EventEdit({model: app.eventsCollection.get(eid)}).render();
+          })
+        } else {
+          new EventEdit({model: app.eventsCollection.get(eid)}).render();
+        }
+        this.currentPage = "eventdetail:" + eid + "/edit";
+      }
+    },
     goEventDetail: function(eid) {
       if(this.currentPage != "eventdetail:" + eid) {
         if(this.currentPage == null) {
           app.router.on('eventsFetched', function() {
+            console.log(app.eventsCollection.get(eid));
             new EventDetail({model: app.eventsCollection.get(eid)}).render();
           })
         } else {

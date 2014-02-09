@@ -10,7 +10,7 @@ define(function(require, exports, module) {
       password: '',
       salt: '',
       membership_type: '',
-      access_level: 0,
+      access_level: "0",
       location: ''
     },
     validate: function(attributes) {

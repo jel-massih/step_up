@@ -1,0 +1,61 @@
+<span style= "display:inline block ">
+    <img class="logo" src="app/img/SULogoTop.gif"  alt="">
+    <h3 id="eventFormTitle">Edit Event Form </h3>
+  <div class="alert-error" style="display:none; color:red"></div>
+</span>  
+<div class="alert-error" style="display:none; color:red"></div>
+<div id="wrapper" style="width:700px;margin:0 auto">
+    
+    <form class="form-horizontal">
+    <fieldset>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="textinput">Event Name</label>  
+      <div class="col-md-4">
+      <input id="nameInput" name="textinput" value="<%= model.get("event_name") %>" class="form-control input-md" type="text">
+        
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="textinput2">Event Description</label>  
+      <div class="col-md-4">
+      <input id="descriptionInput" name="textinput2" value="<%= model.get("event_desc") %>" class="form-control input-md" type="text">
+        
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="passwordinput">Event Start Date</label>
+      <div class="col-md-4">
+        <input id="dateInput" name="passwordinput" value="<%= model.get("event_start_date") %>"  class="form-control input-md" type="text">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="passwordinput">Event Start Time</label>
+      <div class="col-md-4">
+        <input id="timeInput" name="passwordinput" value="<%= model.get("event_start_time") %>" class="form-control input-md" type="text">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="eventcity">Event Location</label>
+      <div class="col-md-4">
+        <select id="eventcity" name="selectcity" value="<%= model.get("event_location") %>" class="form-control">
+           <option value="0">Select One</option>
+          <option value="chicago">Chicago</option>
+          <option value="new york">New York</option>
+          <option value="los angeles">Los Angeles</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="button1id"> </label>
+      <div class="col-md-8">
+        <button id="editEvent" name="button1id" class="btn btn-success">Update Event</button>
+      </div>
+    </div>
+</div>  
+</div>

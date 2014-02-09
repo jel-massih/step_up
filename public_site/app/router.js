@@ -59,6 +59,7 @@ define(function(require, exports, module) {
       "register":"register",
       "logout":"logout",
       "events/:id": "viewEventInfo",
+      "events/:id/edit": "editEventInfo",
       "messages/:id": "viewMessage",
       "message/new": "newMessage",
       "admin": "adminHome",
@@ -112,6 +113,9 @@ define(function(require, exports, module) {
     },
     adminHome: function() {
       this.MainView.goAdminHome();
+    },
+    editEventInfo: function(eid) {
+      this.MainView.goEventEdit(eid);
     }
   });
 });

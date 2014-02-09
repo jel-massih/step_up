@@ -16,7 +16,8 @@
 	$app->get('/users', 'getUserList');
 	$app->get('/user', authenticate(), 'getCurrentUserInfo');
 	$app->get('/events', 'getEvents');
-	$app->get('/events/:location', 'getEventsByLocation');
+	$app->get('/events/loc/:location', 'getEventsByLocation');
+	$app->put('/events/:id', authenticate(), administrate(), 'updateEvent');
 	$app->get('/messages', authenticate(), 'getLoggedInUserMessages');
 	$app->post('/messages', authenticate(), 'postMessage');
 
@@ -122,6 +123,21 @@
 		}
 	}
 
+	function updateEvent($id) {
+		global $app;
+    $_PUT = json_decode($app->request()->getBody(), true);
+    if(empty($_PUT['event_name']) || empty($_PUT['id'])) {
+      echo('{"error":{"text":"Please Fill in a Name"}}');
+    } else {
+      if(dbUpdateEvent($_PUT['id'], $_PUT['event_name'], $_PUT['event_desc'], $_PUT['event_loc'], $_PUT['event_start_date'], $_PUT['event_start_time'])) {
+        echo('{"success":{"text":"Successfully Updated Password!"}}');
+      } else {
+        echo('{"error":{"text":"Failed to Update Password"}}');
+      }
+    }
+  }
+	}
+
 	function getLoggedInUserMessages() {
 		if($_SESSION['user'] != null) {
 			$results = dbGetMessages($_SESSION['user']['id']);
@@ -133,17 +149,6 @@
 		} else {
 			echo('{"error":{"text":"Failed to retrieve User ID"}}');
 		}
-	}
-
-	function authenticate() {
-		return function() {
-			global $app;
-			if(!isset($_SESSION['user'])) {
-				$app->halt(401,"Access Denied");
-			} else {
-				return true;
-			}
-		};
 	}
 
 	function postMessage() {
@@ -161,4 +166,26 @@
 			echo('{"error":{"text":"Please Specify Title Or Body"}}');
 		}
 	}
+
+	function authenticate() {
+		return function() {
+			global $app;
+			if(!isset($_SESSION['user'])) {
+				$app->halt(401,"Access Denied");
+			} else {
+				return true;
+			}
+		};
+	}
+
+	function administrate() {
+		return function() {
+      global $app;
+      if($_SESSION['user']['access_level'] == "0") {
+        $app->halt(406, "Access Denied");
+      } else {
+        return true;
+      }
+    };
+  }
 ?>
