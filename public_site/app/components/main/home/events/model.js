@@ -16,7 +16,7 @@ define(function(require, exports, module) {
         return 'Event must have a name';
       }
     },
-    urlRoot: '../api/index.php/events'
+    urlRoot: '../api/index.php/event'
   });
 
   module.exports = Event;
