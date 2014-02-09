@@ -7,6 +7,7 @@ define(function(require, exports, module) {
     defaults: {
       message_title: '',
       message_body: '',
+      sender_id: ''
     },
     urlRoot: '../api/index.php/message'
   });

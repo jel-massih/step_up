@@ -23,6 +23,8 @@
 
 	function dbGetEventsByLocation($location) {
 		global $db_link;
+    $result = array();
+    
 	  if($q = $db_link->prepare("SELECT * FROM events WHERE `location` = ?"))
 	  {
       $q->bind_param('s', $location);

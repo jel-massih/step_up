@@ -15,6 +15,7 @@
 	$app->get('/user', authenticate(), 'getCurrentUserInfo');
 	$app->get('/events', 'getEvents');
 	$app->get('/events/:location', 'getEventsByLocation');
+	$app->get('/messages', authenticate(), 'getLoggedInUserMessages');
 
 	$app->run();
 
@@ -106,6 +107,19 @@
 			echo($results);
 		} else {
 			echo('{"error":{"text":"Failed to retrieve Events"}}');
+		}
+	}
+
+	function getLoggedInUserMessages() {
+		if($_SESSION['user'] != null) {
+			$results = dbGetMessages($_SESSION['user']['id']);
+			if($results != null) {
+				echo($results);
+			} else {
+				echo('{"error":{"text":"Failed to retrieve Messages"}}');
+			}
+		} else {
+			echo('{"error":{"text":"Failed to retrieve User ID"}}');
 		}
 	}
 
